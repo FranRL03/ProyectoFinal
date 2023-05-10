@@ -1,0 +1,130 @@
+/* PRINCIPAL */
+
+ul li a{
+    color: rgb(6, 27, 2) !important;
+}
+
+header{
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+.content{
+    padding-top: 150px;
+    padding-left: 10px;
+}
+
+#title{
+    color: rgb(62, 17, 62);
+    font-family:'Comic Sans MS', Arial, sans-serif;
+}
+
+#card-1{
+    text-indent: 1em;
+}
+
+#card-2{
+    text-indent: 2.5em;
+}
+
+#card-3{
+    text-indent: 6em;
+}
+
+#notice{
+    color: rgb(62, 17, 62);
+    padding-top: 150px;
+}
+
+.noticePara{
+    margin-top: 75px;
+}
+
+footer{
+    margin-top: 100px ;
+    background-color: rgb(211, 211, 211);
+}
+
+/* ACCSESO HERMANO */
+
+#fondoAcceso{
+    background-image: url(img/VirgenPuente.jpeg);
+    background-size: 100% 130%;
+    background-repeat: no-repeat;
+}
+
+#divForm{
+    width: 370px;
+    height: 566px;
+    background-color: rgb(236, 236, 236);
+}
+
+#form{
+    width: 342px;
+    height: 538px;
+}
+
+#enlace{
+    font-size:  1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+.h4titulo{
+    font-family: sans-serif;
+}
+
+/* NUEVO HERMANO */ 
+
+#fondoNuevoHermano{
+    background-color: rgb(245, 235, 209);
+}
+
+.nuevoHermano{
+	list-style-type: none;
+}
+
+.nuevoHermano{
+    padding-top: 40px;
+    padding-left: 10px;
+}
+
+#h5titulo{
+    margin-top: 65px;
+    font-family: Gabriola;
+    font-size: 1.6rem;
+}
+
+/* TABLA ADMIN */
+
+#tabla{
+    width: 99%;
+}
+
+.celda{
+    width: 300px;
+    text-align: center;
+}
+
+/* CSS EN COMÚN */
+
+#title, #card-1, #card-2, #card-3{
+    font-weight: 600;
+    font-family:'Comic Sans MS', Arial, sans-serif;
+}
+
+.titleNotice, footer h5, #tituloNew, .formulario label{
+    color: rgb(76, 31, 119);
+}
+
+#title, #card-1, #card-2, #card-3, #tituloEnlace, #h5titulo{
+    color: rgb(113, 6, 155);
+}
+
+.formulario label, #h5titulo{
+    font-weight: bold;
+}
