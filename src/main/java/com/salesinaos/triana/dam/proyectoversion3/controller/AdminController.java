@@ -21,6 +21,16 @@ public class AdminController {
 		this.hermanoServicio = service;
 	}
 	
+	@GetMapping("/login")
+	public String showLogin() {
+		return "login";
+	}
+	
+	@GetMapping("/")
+	public String index() {
+		return "Principal";
+	}
+	
 	@GetMapping({"/admin"})
 	public String listarTodos (Model model) {
 		model.addAttribute("hermanos", hermanoServicio.findAll());
