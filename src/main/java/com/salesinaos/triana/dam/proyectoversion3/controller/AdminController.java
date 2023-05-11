@@ -64,9 +64,14 @@ public class AdminController {
 			return "FormularioNuevoHermano";
 		} else {
 			return "redirect:/admin";
-		}
+		}	
 		
-		
+	}
+	
+	@PostMapping("/editar/submit")
+	public String procesarFormularioEdicion(@ModelAttribute("Hermano") Hermano h) {
+		hermanoServicio.edit(h);
+		return "redirect:/admin";
 	}
 	
 	@GetMapping("/borrar/{numHer}")
