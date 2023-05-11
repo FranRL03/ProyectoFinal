@@ -21,17 +21,7 @@ public class AdminController {
 		this.hermanoServicio = service;
 	}
 	
-	@GetMapping("/login")
-	public String showLogin() {
-		return "login";
-	}
-	
-	@GetMapping("/")
-	public String index() {
-		return "Principal";
-	}
-	
-	@GetMapping({"/admin"})
+	@GetMapping("/admin")
 	public String listarTodos (Model model) {
 		model.addAttribute("hermanos", hermanoServicio.findAll());
 		return "ViewAdmin";
@@ -79,7 +69,7 @@ public class AdminController {
 	}
 	
 	@PostMapping("/editar/submit")
-	public String procesarFormularioEdicion(@ModelAttribute("Hermano") Hermano h) {
+	public String procesarFormularioEdicion(@ModelAttribute("hermano") Hermano h) {
 		hermanoServicio.edit(h);
 		return "redirect:/admin";
 	}
