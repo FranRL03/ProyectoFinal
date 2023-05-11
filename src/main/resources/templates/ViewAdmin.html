@@ -12,8 +12,45 @@
 </head>
 
 <body>
+	
+	<header>
+    <nav class="navbar navbar-expand-sm shadow p-3 mb-2 bg-body rounded">
+      <div class="container-fluid justify-content-start">
 
-	<header th:replace="~{fragmentos/cabecera::cabecera}"></header>
+        <!-- LOGO DE LA PÁGINA -->
+
+        <a class="navbar-brand" href="#">
+          <img src="img/Logo-web-San-Bernardo-01-1.jpg" alt="Avatar Logo" style="width:190px;" class="rounded-pill">
+        </a>
+
+
+        <ul class=" nav nav-underline">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Gestión Hermano</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/nuevo}">Nuevo Hermano</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Gestión Producto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Nuevo Producto</a>
+          </li>
+        </ul>
+
+
+        <!-- CERRAR SESIÓN -->
+
+        <button type="button" class="btn btn-danger active ms-auto" data-bs-toggle="modal"
+          data-bs-target="#exampleModal2">
+          <a class="nav-link active" href="Principal.html">Log Out</a>
+        </button>
+      </div>
+    </nav>
+  </header>
+  
+  <br>
 
 	<main class="content">
 		<div class="d-flex">
@@ -76,10 +113,6 @@
 				</tr>
 			</tbody>
 		</table>
-
-		<div class="d-flex justify-content-end pe-5">
-			<a th:href="@{/nuevo}"><button class="btn btn-primary" type="button">Nuevo Hermano</button></a>
-		</div>
 
 	</main>
 

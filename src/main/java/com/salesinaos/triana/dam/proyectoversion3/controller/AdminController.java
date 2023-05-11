@@ -52,6 +52,13 @@ public class AdminController {
 		
 		Hermano aEditar = hermanoServicio.findById(numHer);
 		
+		String[] provincia = new String[] { "Huelva", "Sevilla", "Cádiz", "Córdoba",
+				"Granada", "Málaga", "Jaén", "Almería"}; 
+		model.addAttribute("provincia", provincia);
+		
+		String[] vivienda = new String[] { "Casa", "Piso", "Parcela"}; 
+		model.addAttribute("vivienda", vivienda);
+		
 		if (aEditar != null) {
 			model.addAttribute("hermano", aEditar);
 			return "FormularioNuevoHermano";
