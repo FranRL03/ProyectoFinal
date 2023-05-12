@@ -49,7 +49,7 @@ footer{
 /* ACCSESO HERMANO */
 
 #fondoAcceso{
-    background-image: url(img/VirgenPuente.jpeg);
+    background-image: url(/img/VirgenPuente.jpeg);
     background-size: 100% 130%;
     background-repeat: no-repeat;
 }
