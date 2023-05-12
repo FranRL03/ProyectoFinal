@@ -37,14 +37,18 @@
 					<li class="nav-item">
 						<a class="nav-link">Patrimonio</a>
 					</li>
+
+					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
+						<a class="nav-link" th:href="@{/admin}">Administración</a>
+					</li>
+
 				</ul>
 			</div>
 			<!-- INICIO DE SESIÓN -->
 
-			<a th:href="@{/login}" class="container-fluid justify-content-end">
-				<button type="button" class="btn btn-primary active ms-auto" data-bs-toggle="modal"
+				<button type="button" class="btn btn-danger active ms-auto" data-bs-toggle="modal"
 					data-bs-target="#exampleModal2">
-					Acceso Hermano
+					<a class="nav-link active" th:href="@{/login}">Log Out</a>
 				</button>
 			</a>
 
@@ -237,4 +241,5 @@
 		integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
 		crossorigin="anonymous"></script>
 </body>
+
 </html>
