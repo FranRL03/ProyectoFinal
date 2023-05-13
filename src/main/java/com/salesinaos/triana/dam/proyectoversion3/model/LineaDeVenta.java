@@ -32,9 +32,14 @@ public class LineaDeVenta {
 	
 	//MÉTODOS HELPER
 	
-	/*public void addVenta(Venta v) {
-		venta.setLineaDeVenta(null);
-		this.venta
-	}*/
+	public void addVenta(Venta v) {
+		this.venta = v;
+		venta.getLineaDeVenta().add(this);
+	}
+	
+	public void removeUnaVenta(Venta v) {
+		venta.getLineaDeVenta().remove(this);
+		this.venta = null;
+	}
 
 }
