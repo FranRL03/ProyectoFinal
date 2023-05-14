@@ -3,10 +3,12 @@ package com.salesinaos.triana.dam.proyectoversion3.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.salesinaos.triana.dam.proyectoversion3.model.Venta;
 import com.salesinaos.triana.dam.proyectoversion3.repo.VentaRepositorio;
 
+@Service
 public class VentaServicio extends BaseService<Venta, Long, VentaRepositorio>{
 	
 	@Autowired
