@@ -1,2 +1,5 @@
 INSERT INTO Hermano (NUM_HER, NOMBRE, APELLIDOS, EMAIL, DNI, CUOTA, CARGO, DOMICILIO, PROVINCIA, VIVIENDA, MOVIL, FECHA_NAC, FECHA_ALTA) VALUES (NEXTVAL('hibernate_sequence'),'Fran', 'Ruiz', 'fran@email.com', '1111A', 50, 'Prioste', 'C/ Calle', 'Sevilla', 'Casa', '11111111', '2003-02-07',  '2003-05-14');
 INSERT INTO Hermano (NUM_HER, NOMBRE, APELLIDOS, EMAIL, DNI, CUOTA, CARGO, DOMICILIO, PROVINCIA, VIVIENDA, MOVIL, FECHA_NAC, FECHA_ALTA) VALUES (NEXTVAL('hibernate_sequence'),'JJ', 'Ruiz', 'jj@email.com', '2222B', 50, 'Hermano', 'C/ Calle', 'Sevilla', 'Casa', '22222222', '1996-10-14',  '1996-12-10');
+
+INSERT INTO Producto (ID, NOMBRE, DESCRIPCION,  CANTIDAD, PVP) VALUES (NEXTVAL('hibernate_sequence'), 'Rosario', 'ndjnjfrjnf', 3, 20.50);
+INSERT INTO Producto (ID, NOMBRE,DESCRIPCION, CANTIDAD, PVP) VALUES (NEXTVAL('hibernate_sequence'), 'Palermo', 'bhfebhefybde', 5, 56.99);

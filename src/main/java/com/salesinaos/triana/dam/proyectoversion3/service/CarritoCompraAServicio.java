@@ -126,15 +126,10 @@ public class CarritoCompraAServicio {
     		
     		v.setPrecioTotal(precioT);
     		ventaServicio.save(v);
-    		productos.clear();
     	}
     	
     	productos.clear();
     }
-    
-    public void borrarCarritoCompleto() {
-		productos.clear();
-	}
     
     public double calcularPrecioMedioDeUnaVenta(double total) {
 		return total / productos.size();

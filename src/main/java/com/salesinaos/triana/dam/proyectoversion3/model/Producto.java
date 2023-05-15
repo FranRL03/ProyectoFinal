@@ -20,7 +20,7 @@ public class Producto {
 	@GeneratedValue
 	private long id;
 	
-	private String nombre, imagen, descripcion;
+	private String nombre, descripcion;
 	private double pvp;
 	private int cantidad;
 	
