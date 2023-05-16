@@ -110,6 +110,13 @@ footer{
     text-align: center;
 }
 
+/* TIENDA */
+
+.enlaceCompra{
+    text-decoration: none;
+    color: aliceblue;
+}
+
 /* CSS EN COMÚN */
 
 #title, #card-1, #card-2, #card-3{

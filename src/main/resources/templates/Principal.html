@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
 
 <head>
 	<meta charset="UTF-8">
@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<header>
+		<header>
 		<nav class="navbar navbar-expand-sm shadow p-3 mb-2 bg-body rounded">
 			<div class="container-fluid justify-content-start">
 
@@ -32,7 +32,7 @@
 						<a class="nav-link" href="#">Cofradía</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Cultos</a>
+						<a class="nav-link" th:href="@{/tienda}">Tienda</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link">Patrimonio</a>
@@ -50,7 +50,6 @@
 					data-bs-target="#exampleModal2">
 					<a class="nav-link active" th:href="@{/login}">Log Out</a>
 				</button>
-			</a>
 
 		</nav>
 
@@ -116,7 +115,7 @@
 				<div class="">
 					<img src="img/symbole-de-la-boutique-violet.png" class="" alt="Caridad">
 					<div class="">
-						<h5 class="card-title pt-3" id="card-3">TIENDA</h5>
+						<h5 class="card-title pt-3" id="card-3">CULTOS</h5>
 					</div>
 				</div>
 			</div>
