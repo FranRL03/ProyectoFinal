@@ -1,5 +1,5 @@
 INSERT INTO Hermano (NUM_HER, NOMBRE, APELLIDOS, EMAIL, DNI, CUOTA, CARGO, DOMICILIO, PROVINCIA, VIVIENDA, MOVIL, FECHA_NAC, FECHA_ALTA) VALUES (NEXTVAL('hibernate_sequence'),'Fran', 'Ruiz', 'fran@email.com', '1111A', 50, 'Prioste', 'C/ Calle', 'Sevilla', 'Casa', '11111111', '2003-02-07',  '2003-05-14');
 INSERT INTO Hermano (NUM_HER, NOMBRE, APELLIDOS, EMAIL, DNI, CUOTA, CARGO, DOMICILIO, PROVINCIA, VIVIENDA, MOVIL, FECHA_NAC, FECHA_ALTA) VALUES (NEXTVAL('hibernate_sequence'),'JJ', 'Ruiz', 'jj@email.com', '2222B', 50, 'Hermano', 'C/ Calle', 'Sevilla', 'Casa', '22222222', '1996-10-14',  '1996-12-10');
 
-INSERT INTO Producto (ID, NOMBRE, DESCRIPCION,  CANTIDAD, PVP) VALUES (NEXTVAL('hibernate_sequence'), 'Rosario', 'ndjnjfrjnf', 3, 20.50);
-INSERT INTO Producto (ID, NOMBRE,DESCRIPCION, CANTIDAD, PVP) VALUES (NEXTVAL('hibernate_sequence'), 'Palermo', 'bhfebhefybde', 5, 56.99);
+INSERT INTO Producto (ID, IMG, NOMBRE, DESCRIPCION, CANTIDAD, PVP) VALUES (NEXTVAL('hibernate_sequence'), 'https://customsacro.com/wp-content/uploads/2022/06/san-bernardo-2.jpg' ,'Pulsera San Bernardo', 'Pulsera de tela de la Hermadad de San Bernardo', 3, 1.00);
+INSERT INTO Producto (ID, IMG, NOMBRE,DESCRIPCION, CANTIDAD, PVP) VALUES (NEXTVAL('hibernate_sequence'), 'https://sevilladejoya.es/117/medalla-san-bernardo.jpg' ,'Medalla de San Bernardo', 'Medalla Nuestra Señora del Refugio con reverso Santísimo Cristo de la Salud. Fabricada en Plata de Ley', 4, 45.97);
