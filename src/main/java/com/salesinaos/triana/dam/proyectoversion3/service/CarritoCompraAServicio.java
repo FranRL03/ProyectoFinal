@@ -26,12 +26,9 @@ public class CarritoCompraAServicio {
 
 	@Autowired
 	private VentaServicio ventaServicio;
-
-	@Autowired
-	private LineaDeVentaServicio lineaVentaServicio;
 	
-	@Autowired
-	private Venta venta;
+	//@Autowired
+	//private Venta venta;
 
 
 	private Map<Producto, Integer> productos = new HashMap<>();
@@ -95,13 +92,13 @@ public class CarritoCompraAServicio {
     
     public void comprobarCompraRealizada() {
     	Venta v = new Venta();
-    	LineaDeVenta lineaV;
     	v.setFechaVenta(LocalDate.now());
     	double precioT =0.0;
     	
     	//la condición del if es comprobar si la lista NO está vacía
     	//por eso hemos puesto "!"
     	if(!productos.isEmpty()) {
+    		LocalDate.now();
     		ventaServicio.save(v);
     		
     		//Recorremos con un for este Map donde cada objeto (Producto) esta asociado 
@@ -109,28 +106,29 @@ public class CarritoCompraAServicio {
     		for(Map.Entry <Producto, Integer> lineaDeVenta : productos.entrySet()) {
     			
     			//al sacar del for el producto y la cantidad creamos la linea de pedido
-    			venta.addLineaDeVenta(LineaDeVenta.builder()
+    			v.addLineaDeVenta(LineaDeVenta.builder()
     					.producto(lineaDeVenta.getKey())
     					.unidades(lineaDeVenta.getValue())
     					.precioUnidades(lineaDeVenta.getKey().getPvp()*lineaDeVenta.getValue())
     					.build());  
     			
     			//una vez creada la linea de venta la añadimos a la venta con el método helper
-    			
+    			//ventaServicio.save(v);
     			
     			//restamos el Stock en la linea de mercancía, es decir, restamos la cantidad que hay en la tienda
     			producServicio.restarCantidadProducto(lineaDeVenta.getKey().getId(), lineaDeVenta.getValue());
     			
     			
     			precioT += (lineaDeVenta.getKey().getPvp() * lineaDeVenta.getValue());
-    			
+    			//ventaServicio.save(v);
     		}
     		
     		v.setPrecioTotal(precioT);
     		ventaServicio.save(v);
+    		productos.clear();
     	}
     	
-    	productos.clear();
+    	
     }
     
     public double calcularPrecioMedioDeUnaVenta(double total) {
