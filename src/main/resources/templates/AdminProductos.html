@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>View Admin</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+	<link rel="stylesheet" href="../static/css/index.css" type="text/css" th:href="@{/css/index.css}">
+</head>
+
+<body>
+	
+	<header>
+    <nav class="navbar navbar-expand-sm shadow p-3 mb-2 bg-body rounded">
+      <div class="container-fluid justify-content-start">
+
+        <!-- LOGO DE LA PÁGINA -->
+
+        <a class="navbar-brand" href="#">
+          <img src="img/Logo-web-San-Bernardo-01-1.jpg" alt="Avatar Logo" style="width:190px;" class="rounded-pill">
+        </a>
+
+
+        <ul class=" nav nav-underline">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" th:href="@{/admin}">Gestión Hermano</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/nuevo}">Nuevo Hermano</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Gestión Producto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Nuevo Producto</a>
+          </li>
+        </ul>
+
+
+        <!-- CERRAR SESIÓN -->
+
+        <button type="button" class="btn btn-danger active ms-auto" data-bs-toggle="modal"
+          data-bs-target="#exampleModal2">
+          <a class="nav-link active" th:href="@{/}">Log Out</a>
+        </button>
+      </div>
+    </nav>
+  </header>
+  
+  <br>
+
+	<main class="content">
+		<div class="d-flex">
+			<div class="ps-5">
+				<button type="button" class="btn btn-outline-secondary"><a class="nav-link" th:href="@{/initAdmin}">Inicio</a> </button>
+			</div>
+			<form class="ms-auto p-2 pe-5 d-flex" role="search">
+				<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success" type="submit">Buscar</button>
+			</form>
+		</div>
+
+		<hr>
+		<br><br>
+
+		<table class="table table-bordered border" id="tabla">
+			<thead class="table-dark">
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Imágen</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Cantidad</th>
+					<th scope="col">Precio</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="producto : ${products}">
+					<th scope="row" th:text="${producto.id}">1</th>
+					<td><img th:src="${producto.img}" height="100"></td>
+					<td th:text="${producto.nombre}" class="text-center">Nombre</td>
+					<td th:text="${producto.cantidad}" clasd="text-center">Cantidad</td>
+					<td th:text="${producto.pvp}" class="text-center">Pvp</td>
+					<td class="celda"><!-- <a th:href="@{/editar/{numHer}(numHer=${hermano.numHer})}"><button
+							 	class="btn btn-outline-info" type="button">Editar</button></a> -->
+						<button th:attr="data-bs-target='#modalBorrado'+${producto.id}" data-bs-toggle="modal"
+							class="btn btn-outline-danger" type="button">Eliminar</button>
+					</td>
+
+					<!--MODAL BORRADO-->
+
+					<div class="modal" id="myModal" th:id="'modalBorrado'+${producto.id}">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4 class="modal-title">Borrar</h4>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+								</div>
+								<div class="modal-body">¿Quieres borrarlo?</div>
+								<!-- Modal footer -->
+								<div class="modal-footer">
+									<a class="btn btn-danger"
+										th:href="@{/delete/{id}(id=${producto.id})}">SI</a>
+									<a class="btn btn-dark" th:href="@{/adminPro}">NO</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</tr>
+			</tbody>
+		</table>
+
+	</main>
+
+	<footer th:replace="~{fragmentos/footer::footer}"></footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

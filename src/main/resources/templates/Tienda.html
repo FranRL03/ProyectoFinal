@@ -47,10 +47,10 @@
 			</div>
 			<!-- INICIO DE SESIÓN -->
 
-				<button type="button" class="btn btn-danger active ms-auto" data-bs-toggle="modal"
-					data-bs-target="#exampleModal2">
-					<a class="nav-link active" th:href="@{/login}">Log Out</a>
-				</button>
+			<button type="button" class="btn btn-danger active ms-auto" data-bs-toggle="modal"
+				data-bs-target="#exampleModal2">
+				<a class="nav-link active" th:href="@{/login}">Log Out</a>
+			</button>
 
 		</nav>
 
@@ -62,15 +62,15 @@
 
 		<div class="row">
 			<div class=" col-md-3 col-sm-6" th:each="producto : ${products}">
-				<div class="card" style="width: 18rem;">
-					<img th:src="${producto.img}" src="img/Pulsera Tienda.jpg" class="card-img-top"
-						alt="Pulsera de la Hermandad">
+				<div class="card h-100" style="width: 18rem;">
+						<img th:src="${producto.img}" src="img/Pulsera Tienda.jpg" class="card-img-top"
+							alt="Pulsera de la Hermandad">
 					<div class="card-body">
 						<h5 class="card-title"><span th:text="${producto.nombre}">San Bernardo</span></h5>
 						<p class="card-text"><span th:text="${producto.descripcion}">Pulsera de tela de la Hermadad de
 								San
 								Bernardo</span></p>
-						<h3><span th:text="${producto.pvp}">1€€</span></h3>
+						<h3><span th:text="${producto.pvp}">1€</span> €</h3>
 						<a href="/productoCarrito/" th:href="@{/productoCarrito/{id}(id=${producto.id})}"
 							class="btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 								fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">

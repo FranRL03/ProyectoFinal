@@ -36,7 +36,7 @@ public class LineaDeVentaServicio extends BaseService<LineaDeVenta, Long, LineaD
 	
 	
 	
-	 public LineaDeVenta borrarCantidadLineaVenta(long id) {
+	/* public LineaDeVenta borrarCantidadLineaVenta(long id) {
 		// llamamos al método para que busque la linea de venta por el id
 		LineaDeVenta lineaV = findById(id);
 		//Seteamos la unidad del producto restandole una
@@ -55,6 +55,6 @@ public class LineaDeVentaServicio extends BaseService<LineaDeVenta, Long, LineaD
 		
 		
 		
-	} 
+	} */
 
 }

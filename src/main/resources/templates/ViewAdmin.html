@@ -12,48 +12,52 @@
 </head>
 
 <body>
-	
+
 	<header>
-    <nav class="navbar navbar-expand-sm shadow p-3 mb-2 bg-body rounded">
-      <div class="container-fluid justify-content-start">
+		<nav class="navbar navbar-expand-sm shadow p-3 mb-2 bg-body rounded">
+			<div class="container-fluid justify-content-start">
 
-        <!-- LOGO DE LA PÁGINA -->
+				<!-- LOGO DE LA PÁGINA -->
 
-        <a class="navbar-brand" href="#">
-          <img src="img/Logo-web-San-Bernardo-01-1.jpg" alt="Avatar Logo" style="width:190px;" class="rounded-pill">
-        </a>
-
-
-        <ul class=" nav nav-underline">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Gestión Hermano</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" th:href="@{/nuevo}">Nuevo Hermano</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Gestión Producto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link">Nuevo Producto</a>
-          </li>
-        </ul>
+				<a class="navbar-brand" href="#">
+					<img src="img/Logo-web-San-Bernardo-01-1.jpg" alt="Avatar Logo" style="width:190px;"
+						class="rounded-pill">
+				</a>
 
 
-        <!-- CERRAR SESIÓN -->
+				<ul class=" nav nav-underline">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">Gestión Hermano</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/nuevo}">Nuevo Hermano</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/adminPro}">Gestión Producto</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link">Nuevo Producto</a>
+					</li>
+				</ul>
 
-        <button type="button" class="btn btn-danger active ms-auto" data-bs-toggle="modal"
-          data-bs-target="#exampleModal2">
-          <a class="nav-link active" th:href="@{/login}">Log Out</a>
-        </button>
-      </div>
-    </nav>
-  </header>
-  
-  <br>
+
+				<!-- CERRAR SESIÓN -->
+
+				<button type="button" class="btn btn-danger active ms-auto" data-bs-toggle="modal"
+					data-bs-target="#exampleModal2">
+					<a class="nav-link active" th:href="@{/login}">Log Out</a>
+				</button>
+			</div>
+		</nav>
+	</header>
+
+	<br>
 
 	<main class="content">
 		<div class="d-flex">
+			<div class="ps-5">
+				<button type="button" class="btn btn-outline-secondary"><a class="nav-link" th:href="@{/initAdmin}">Inicio</a> </button>
+			</div>
 			<form class="ms-auto p-2 pe-5 d-flex" role="search">
 				<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success" type="submit">Buscar</button>
@@ -83,8 +87,8 @@
 								class="btn btn-outline-info" type="button">Editar</button></a>
 						<button th:attr="data-bs-target='#modalBorrado'+${hermano.numHer}" data-bs-toggle="modal"
 							class="btn btn-outline-danger" type="button">Eliminar</button>
-						<button class="btn btn-outline-warning" type="button" th:attr="data-bs-target='#modalInfo'+${hermano.numHer}"
-							data-bs-toggle="modal">Info</button>
+						<button class="btn btn-outline-warning" type="button"
+							th:attr="data-bs-target='#modalInfo'+${hermano.numHer}" data-bs-toggle="modal">Info</button>
 					</td>
 
 					<!--MODAL BORRADO-->

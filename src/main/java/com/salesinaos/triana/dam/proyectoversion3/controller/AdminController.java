@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesinaos.triana.dam.proyectoversion3.model.Hermano;
 import com.salesinaos.triana.dam.proyectoversion3.service.HermanoServicio;
+import com.salesinaos.triana.dam.proyectoversion3.service.ProductoServicio;
 
 @Controller
 public class AdminController {
@@ -17,9 +18,18 @@ public class AdminController {
 	@Autowired
 	private HermanoServicio hermanoServicio;
 	
-	public AdminController(HermanoServicio service) {
+	@Autowired
+	private ProductoServicio productoServicio;
+	
+	public AdminController(HermanoServicio service, ProductoServicio productoServicio) {
 		this.hermanoServicio = service;
+		this.productoServicio = productoServicio;
 	}
+	
+	@GetMapping("/initAdmin")
+	public String index() {
+		return "Principal";
+	} 
 	
 	@GetMapping("/admin")
 	public String listarTodos (Model model) {
@@ -81,7 +91,19 @@ public class AdminController {
 	}
 	
 	
+	//=====================================================================================
 	
+	@GetMapping("/adminPro")
+	public String listarTodosProductos (Model model) {
+		model.addAttribute("products", productoServicio.findAll());
+		return "AdminProductos";
+	}
+	
+	@GetMapping("/delete/{id}")
+	public String borrarProducto(@PathVariable("id") long id) {
+		productoServicio.restarCantidadProducto(id, 1);
+		return "redirect:/adminPro";
+	}
 	
 
 }

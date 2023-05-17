@@ -41,6 +41,18 @@ public class Venta {
 	@OneToMany (mappedBy = "venta",fetch = FetchType.EAGER, cascade=javax.persistence.CascadeType.REMOVE, orphanRemoval = true)
 	private  List<LineaDeVenta> lineaDeVenta = new ArrayList<LineaDeVenta>();
 	
+	//MÉTODOS HELPER
+	
+		public void addLineaDeVenta(LineaDeVenta lineaV) {
+			this.lineaDeVenta.add(lineaV);
+			lineaV.setVenta(this);
+		}
+		
+		public void removeUnaLineaDeVenta(LineaDeVenta lineaV) {
+			lineaV.setVenta(null);
+			this.lineaDeVenta.remove(lineaV);
+		}
+	
 	
 
 }

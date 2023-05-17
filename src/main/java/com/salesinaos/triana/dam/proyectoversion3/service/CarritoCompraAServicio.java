@@ -29,6 +29,9 @@ public class CarritoCompraAServicio {
 
 	@Autowired
 	private LineaDeVentaServicio lineaVentaServicio;
+	
+	@Autowired
+	private Venta venta;
 
 
 	private Map<Producto, Integer> productos = new HashMap<>();
@@ -65,7 +68,7 @@ public class CarritoCompraAServicio {
 	 */
 	
 	
-	public void removeProducto (Producto p) {
+	 public void removeProducto (Producto p) {
         
 		if (productos.containsKey(p)) {
 
@@ -78,7 +81,7 @@ public class CarritoCompraAServicio {
 				productos.remove(p);
             }
         }
-	}
+	} 
 	
 	
 	 /**
@@ -106,19 +109,18 @@ public class CarritoCompraAServicio {
     		for(Map.Entry <Producto, Integer> lineaDeVenta : productos.entrySet()) {
     			
     			//al sacar del for el producto y la cantidad creamos la linea de pedido
-    			lineaV = LineaDeVenta.builder()
+    			venta.addLineaDeVenta(LineaDeVenta.builder()
     					.producto(lineaDeVenta.getKey())
     					.unidades(lineaDeVenta.getValue())
     					.precioUnidades(lineaDeVenta.getKey().getPvp()*lineaDeVenta.getValue())
-    					.build();
+    					.build());  
     			
     			//una vez creada la linea de venta la añadimos a la venta con el método helper
-    			lineaV.addVenta(v);
+    			
     			
     			//restamos el Stock en la linea de mercancía, es decir, restamos la cantidad que hay en la tienda
     			producServicio.restarCantidadProducto(lineaDeVenta.getKey().getId(), lineaDeVenta.getValue());
     			
-    			lineaVentaServicio.save(lineaV);
     			
     			precioT += (lineaDeVenta.getKey().getPvp() * lineaDeVenta.getValue());
     			
