@@ -76,7 +76,7 @@ public class CarritoCompraController {
 	@PostMapping("/comprado")
     public String checkout(){
     	  	carritoServicio.comprobarCompraRealizada();
-    return "redirect: Tienda";
+    return "redirect:/tienda";
     }
 
 }

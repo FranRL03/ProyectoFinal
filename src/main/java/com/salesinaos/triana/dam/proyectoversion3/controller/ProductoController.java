@@ -21,22 +21,22 @@ public class ProductoController {
 	@Autowired
 	private ProductoServicio productService;
 	
-	@GetMapping({"/producto", "/list"})
+	@GetMapping({"/productos"})
 	public String listarProductos (Model model) {
 		
 		model.addAttribute("productos", productService.findAll());
 		
 		model.addAttribute("searchForm", new BuscarBeans());
-		return "GestionProductos";
+		return "AdminProductos";
 
 	}
 	
-	@PostMapping("/buscar")
+	@PostMapping("/search")
 	  public String searchProducto(@ModelAttribute("searchForm") BuscarBeans buscarBean,
 			 Model model){
-	  	model.addAttribute("productos", productService.findByNombre(buscarBean.getSearch()));
+	  	model.addAttribute("products", productService.findByNombre(buscarBean.getSearch()));
 	  
-	  return "GestionProductos";
+	  return "redirect:/productos";
 	  }
 	
 	

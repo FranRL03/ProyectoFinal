@@ -19,54 +19,48 @@ import com.salesinaos.triana.dam.proyectoversion3.model.Venta;
 @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class CarritoCompraAServicio {
 
-	//private ProductoRepositorio productoRepo;
-	
+	// private ProductoRepositorio productoRepo;
+
 	@Autowired
 	private ProductoServicio producServicio;
 
 	@Autowired
 	private VentaServicio ventaServicio;
-	
-	//@Autowired
-	//private Venta venta;
 
+	// @Autowired
+	// private Venta venta;
 
 	private Map<Producto, Integer> productos = new HashMap<>();
-	
-	
-	
+
 	/**
-	 * Añade un producto al carrito pero si ya hay uno 
-	 * incrementará la cantidad del producto una unidad más. 
+	 * Añade un producto al carrito pero si ya hay uno incrementará la cantidad del
+	 * producto una unidad más.
 	 * 
 	 * @param p
 	 */
 
 	public void addProducto(Producto p) {
-		
+
 		if (productos.containsKey(p)) {
-			
+
 			productos.replace(p, productos.get(p) + 1);
-		
+
 		} else {
-			
+
 			productos.put(p, 1);
 		}
 	}
-	
-	
+
 	/**
-	 * Elimina un producto del carrito.
-	 * Si la cantidad del producto es mayor a uno se borra la 
-	 * cantidad de una unidad.
-	 * Si la cantidad del producto es una se borrará el producto.
+	 * Elimina un producto del carrito. Si la cantidad del producto es mayor a uno
+	 * se borra la cantidad de una unidad. Si la cantidad del producto es una se
+	 * borrará el producto.
 	 * 
 	 * @param p
 	 */
-	
-	
-	 public void removeProducto (Producto p) {
-        
+
+	public void removeProducto(Producto p) {
+
 		if (productos.containsKey(p)) {
 
 			if (productos.get(p) > 1)
@@ -76,22 +70,21 @@ public class CarritoCompraAServicio {
 			else if (productos.get(p) == 1) {
 
 				productos.remove(p);
-            }
-        }
-	} 
-	
-	
-	 /**
-     * @return unmodifiable Copia del carrito no modificable, solo vista
-     */
-	
+			}
+		}
+	}
 
-    public Map<Producto, Integer> getProductsInCart() {
-        return Collections.unmodifiableMap(productos);
-    }
-    
-    public void comprobarCompraRealizada() {
+	/**
+	 * @return unmodifiable Copia del carrito no modificable, solo vista
+	 */
+
+	public Map<Producto, Integer> getProductsInCart() {
+		return Collections.unmodifiableMap(productos);
+	}
+
+	public void comprobarCompraRealizada() {
     	Venta v = new Venta();
+    	LineaDeVenta lineaV;
     	v.setFechaVenta(LocalDate.now());
     	double precioT =0.0;
     	
@@ -112,15 +105,21 @@ public class CarritoCompraAServicio {
     					.precioUnidades(lineaDeVenta.getKey().getPvp()*lineaDeVenta.getValue())
     					.build());  
     			
-    			//una vez creada la linea de venta la añadimos a la venta con el método helper
-    			//ventaServicio.save(v);
+    			/* lineaV = LineaDeVenta.builder()
+    					.producto(lineaDeVenta.getKey())
+    					.unidades(lineaDeVenta.getValue())
+    					.precioUnidades(lineaDeVenta.getKey().getPvp()*lineaDeVenta.getValue())
+    					.build();
+    			
+    			v.addLineaDeVenta(lineaV); */
     			
     			//restamos el Stock en la linea de mercancía, es decir, restamos la cantidad que hay en la tienda
     			producServicio.restarCantidadProducto(lineaDeVenta.getKey().getId(), lineaDeVenta.getValue());
     			
-    			
     			precioT += (lineaDeVenta.getKey().getPvp() * lineaDeVenta.getValue());
-    			//ventaServicio.save(v);
+    			
+    			
+ 
     		}
     		
     		v.setPrecioTotal(precioT);
@@ -130,8 +129,8 @@ public class CarritoCompraAServicio {
     	
     	
     }
-    
-    public double calcularPrecioMedioDeUnaVenta(double total) {
+
+	public double calcularPrecioMedioDeUnaVenta(double total) {
 		return total / productos.size();
 	}
 
