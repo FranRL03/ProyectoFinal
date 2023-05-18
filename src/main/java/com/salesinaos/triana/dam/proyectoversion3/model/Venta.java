@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -38,7 +39,7 @@ public class Venta {
 	@Builder.Default
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@OneToMany (mappedBy = "venta",fetch = FetchType.EAGER, cascade=javax.persistence.CascadeType.REMOVE, orphanRemoval = true)
+	@OneToMany (mappedBy = "venta",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private  List<LineaDeVenta> lineaDeVenta = new ArrayList<LineaDeVenta>();
 	
 	//MÉTODOS HELPER
