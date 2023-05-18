@@ -136,31 +136,23 @@ public class CarritoCompraAServicio {
     	    LocalDate fechaActual = LocalDate.now();
     	    ventaServicio.save(v);
     	    
-    	    //List<LineaDeVenta> lineasDeVenta = new ArrayList<>();
-    	  
-    	    for ( Producto p : productos.keySet()) {
+    	    for (Producto p : productos.keySet()) {
+    	        v.addLineaDeVenta(LineaDeVenta.builder()
+    	            .producto(p)
+    	            .unidades(productos.get(p))
+    	            .precioUnidades(p.getPvp())
+    	            .build());
     	        
-    	       v.addLineaDeVenta(LineaDeVenta.builder()
-    	    		   .producto(p)
-    	    		   .unidades(productos.get(p))
-    	    		   .precioUnidades(p.getPvp() * p.getCantidad())
-    	    		   .build());
-    	    		   
-    	    		  
+    	        producServicio.restarCantidadProducto(p.getId(), productos.get(p));
     	        
-    	        // Restar la cantidad del producto en el stock
-    	        producServicio.restarCantidadProducto(productos.get(p.getId()), productos.get(p.getCantidad()));
-    	        
-    	        precioT += productos.get(p.getPvp()) *  productos.get(p.getCantidad());
+    	        precioT += productos.get(p) * p.getPvp();
     	    }
     	    
     	    v.setPrecioTotal(precioT);
     	    ventaServicio.save(v);
     	    productos.clear();
     	}
-
-    	
-    }
+	}
 
 	public double calcularPrecioMedioDeUnaVenta(double total) {
 		return total / productos.size();
