@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesinaos.triana.dam.proyectoversion3.model.Hermano;
+import com.salesinaos.triana.dam.proyectoversion3.model.Producto;
 import com.salesinaos.triana.dam.proyectoversion3.service.HermanoServicio;
 import com.salesinaos.triana.dam.proyectoversion3.service.ProductoServicio;
 
@@ -102,6 +103,25 @@ public class AdminController {
 	@GetMapping("/delete/{id}")
 	public String borrarProducto(@PathVariable("id") long id) {
 		productoServicio.restarCantidadProducto(id, 1);
+		return "redirect:/adminPro";
+	}
+	
+	@GetMapping("/nuevoProducto")
+	public String mostrarFormularioProducto(Model model) {
+		model.addAttribute("producto", new Producto());
+		
+		return "FormularioNuevoProducto";
+	}
+	
+	@PostMapping("/addProducto")
+	public String procesarFormularioProducto(@ModelAttribute("producto") Producto p) {
+		productoServicio.add(p);
+		return "redirect:/adminPro";
+	}
+	
+	@PostMapping("/editarProducto")
+	public String procesarFormularioEdicion(@ModelAttribute("producto") Producto p) {
+		productoServicio.edit(p);
 		return "redirect:/adminPro";
 	}
 	
