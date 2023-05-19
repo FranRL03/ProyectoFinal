@@ -2,6 +2,8 @@ package com.salesinaos.triana.dam.proyectoversion3.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -42,18 +44,37 @@ public class Venta {
 	@OneToMany (mappedBy = "venta",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private  List<LineaDeVenta> lineaDeVenta = new ArrayList<LineaDeVenta>();
 	
+	public List<LineaDeVenta> getLineaDeVentas(){
+		return Collections.unmodifiableList(lineaDeVenta);
+	}
+ 	
 	//MÉTODOS HELPER
 	
-		public void addLineaDeVenta(LineaDeVenta lineaV) {
+	public void addLineaVenta(LineaDeVenta lv) {
+		lv.getLineaVentaPK().setLineaVenta_id(getLineaVentaId());
+		lv.setVenta(this);
+		this.lineaDeVenta.add(lv);
+	}
+	
+	/*	public void addLineaDeVenta(LineaDeVenta lineaV) {
 			this.lineaDeVenta.add(lineaV);
 			lineaV.setVenta(this);
-		}
+		} */
 		
 		public void removeUnaLineaDeVenta(LineaDeVenta lineaV) {
 			lineaV.setVenta(null);
 			this.lineaDeVenta.remove(lineaV);
 		}
 	
-	
+	public long getLineaVentaId() {
+		if(this.lineaDeVenta.size() > 0) {
+			return this.lineaDeVenta.stream()
+					.map(LineaDeVenta::getLineaVentaPK)
+					.map(LineaVentaPK::getLineaVenta_id)
+					.max(Comparator.naturalOrder())
+					.orElse(0l)+11;
+		}else
+			return 11;
+	}
 
 }

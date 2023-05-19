@@ -1,9 +1,9 @@
 package com.salesinaos.triana.dam.proyectoversion3.model;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,9 +17,13 @@ import lombok.NoArgsConstructor;
 @Builder
 public class LineaDeVenta {
 	
-	@Id
+	/* @Id
 	@GeneratedValue
-	private long idLineaVenta;
+	private long idLineaVenta; */
+	
+	@EmbeddedId
+	@Builder.Default
+	private LineaVentaPK lineaVentaPK = new LineaVentaPK();
 	
 	private int unidades;
 	private double precioUnidades;
@@ -28,6 +32,7 @@ public class LineaDeVenta {
 	private Producto producto;
 	
 	@ManyToOne
+	@MapsId("venta_id")
 	private Venta venta;
 	
 	
