@@ -86,7 +86,6 @@ public class CarritoCompraAServicio {
 
 	public void comprobarCompraRealizada() {
     	Venta v = new Venta();
-    	LineaDeVenta lineaV;
     	v.setFechaVenta(LocalDate.now());
     	double precioT =0.0;
     	
@@ -133,16 +132,15 @@ public class CarritoCompraAServicio {
     	 //Map<Producto, Integer> products = new HashMap<>();
     	
     	if (!productos.isEmpty()) {
-    	    LocalDate fechaActual = LocalDate.now();
+    	     LocalDate.now();
     	    ventaServicio.save(v);
     	    
     	    for (Producto p : productos.keySet()) {
-    	        v.addLineaDeVenta(LineaDeVenta.builder()
+    	        v.addLineaVenta((LineaDeVenta.builder()
     	            .producto(p)
     	            .unidades(productos.get(p))
     	            .precioUnidades(p.getPvp())
-    	            .build());
-    	        
+    	            .build()));
     	        producServicio.restarCantidadProducto(p.getId(), productos.get(p));
     	        
     	        precioT += productos.get(p) * p.getPvp();
