@@ -3,9 +3,11 @@ package com.salesinaos.triana.dam.proyectoversion3.model;
 import java.util.Collection;
 import java.util.List;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,13 +18,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Usuario implements UserDetails {
-	
+
 	@Id
 	@GeneratedValue
 	private long id;

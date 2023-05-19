@@ -54,6 +54,12 @@ public class HermanoServicio {
 	public Hermano findById(long numHer) {
 		return hermanoRepo.findById(numHer).orElse(null);
 	}
+	
+	public double sumarCuotas() {
+		
+		return hermanoRepo.sumaDeCuotas();
+		
+	}
 
 }
 

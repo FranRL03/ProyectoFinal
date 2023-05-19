@@ -20,7 +20,7 @@
 			<div class="border border-4 w-50 fondoProducto ps-3">
 
 				<form class="pt-3 formulario" method="POST"
-					th:action="${producto.id != 0} ? @{/editar/submit} : @{/addProducto}" th:object="${producto}">
+					th:action="${producto.id != 0} ? @{/editarProducto} : @{/addProducto}" th:object="${producto}">
 					<input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" />
 
 					<div>
@@ -42,8 +42,9 @@
 						<textarea name="descripcion" id="descripcion" cols="30" rows="10" th:field="*{descripcion}"
 							required></textarea>
 
-					</div>
+					</div><br>
 
+						
 					<div class="d-flex mb-3 ps-2">
 						<input type="reset" name="reset" value="Borrar" class="me-auto p-2">
 						<div class="pe-4">

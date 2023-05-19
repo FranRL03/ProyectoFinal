@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesinaos.triana.dam.proyectoversion3.model.Hermano;
 import com.salesinaos.triana.dam.proyectoversion3.model.Producto;
+import com.salesinaos.triana.dam.proyectoversion3.repo.HermanoRepositorio;
 import com.salesinaos.triana.dam.proyectoversion3.service.HermanoServicio;
 import com.salesinaos.triana.dam.proyectoversion3.service.ProductoServicio;
 
@@ -35,7 +36,7 @@ public class AdminController {
 	@GetMapping("/admin")
 	public String listarTodos (Model model) {
 		model.addAttribute("hermanos", hermanoServicio.findAll());
-		return "ViewAdmin";
+				return "ViewAdmin";
 	}
 	
 	@GetMapping("/nuevo")
@@ -91,6 +92,14 @@ public class AdminController {
 		return "redirect:/admin";
 	}
 	
+	@ModelAttribute("cuota_total")
+	public Double cuotaTotal() {
+		
+		hermanoServicio.sumarCuotas();
+		
+		return 0.0;
+	}
+	
 	
 	//=====================================================================================
 	
@@ -117,6 +126,20 @@ public class AdminController {
 	public String procesarFormularioProducto(@ModelAttribute("producto") Producto p) {
 		productoServicio.add(p);
 		return "redirect:/adminPro";
+	}
+	
+	@GetMapping("/editarProducto/{id}")
+	public String mostrarFormularioEdicionProducto(@PathVariable("id") long id, Model model) {
+		
+		Producto editPro = productoServicio.findById(id);
+		
+		if (editPro != null) {
+			model.addAttribute("producto", editPro);
+			return "FormularioNuevoProducto";
+		} else {
+			return "redirect:/adminPro";
+		}	
+		
 	}
 	
 	@PostMapping("/editarProducto")

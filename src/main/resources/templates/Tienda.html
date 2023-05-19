@@ -59,12 +59,26 @@
 
 	<main class="content">
 
+		<div class="d-flex">
+			<div class="ps-5">
+				<button type="button" class="btn btn-outline-secondary"><a class="nav-link" th:href="@{/carrito}"><svg
+							xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+							class="bi bi-bag-fill" viewBox="0 0 16 16">
+							<path
+								d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z" />
+						</svg> Carrito</a> </button>
+			</div>
+			<form class="ms-auto p-2 pe-5 d-flex" role="search">
+				<input class="form-control me-2" type="text" name="nombre" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success" type="submit">Buscar</button>
+			</form>
+		</div>
 
 		<div class="row">
-			<div class=" col-md-3 col-sm-6" th:each="producto : ${products}">
+			<div class=" col-md-3 col-sm-6 pt-4 ps-5" th:each="producto : ${products}">
 				<div class="card h-100" style="width: 18rem;">
-						<img th:src="${producto.img}" src="img/Pulsera Tienda.jpg" class="card-img-top"
-							alt="Pulsera de la Hermandad">
+					<img th:src="${producto.img}" src="img/Pulsera Tienda.jpg" class="card-img-top"
+						alt="Pulsera de la Hermandad">
 					<div class="card-body">
 						<h5 class="card-title"><span th:text="${producto.nombre}">San Bernardo</span></h5>
 						<p class="card-text"><span th:text="${producto.descripcion}">Pulsera de tela de la Hermadad de

@@ -17,10 +17,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class LineaDeVenta {
 	
-	/* @Id
-	@GeneratedValue
-	private long idLineaVenta; */
-	
 	@EmbeddedId
 	@Builder.Default
 	private LineaVentaPK lineaVentaPK = new LineaVentaPK();
