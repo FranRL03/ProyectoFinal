@@ -15,8 +15,8 @@
 
 <body>
 
-	
-	<header>
+
+	<header th:fragment="cabecera">
 		<nav class="navbar navbar-expand-sm shadow p-3 mb-2 bg-body rounded">
 			<div class="container-fluid justify-content-start">
 
@@ -30,13 +30,13 @@
 
 				<ul class=" nav nav-underline">
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="#">Inicio</a>
+						<a class="nav-link" aria-current="page" href="#">Inicio</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Cofradía</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Tienda</a>
+						<a class="nav-link active" th:href="@{/tienda}">Tienda</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link">Patrimonio</a>
@@ -50,10 +50,10 @@
 			</div>
 			<!-- INICIO DE SESIÓN -->
 
-				<button type="button" class="btn btn-danger active ms-auto" data-bs-toggle="modal"
-					data-bs-target="#exampleModal2">
-					<a class="nav-link active" th:href="@{/login}">Log Out</a>
-				</button>
+			<button type="button" class="btn btn-danger active ms-auto" data-bs-toggle="modal"
+				data-bs-target="#exampleModal2">
+				<a class="nav-link active" th:href="@{/login}">Log Out</a>
+			</button>
 
 		</nav>
 
