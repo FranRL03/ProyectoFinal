@@ -42,7 +42,7 @@ public class CarritoCompraController {
 
 		carritoServicio.addProducto(productoServicio.findById(id));
 
-		return "redirect:/carrito";
+		return "redirect:/tienda";
 	}
 
 	@GetMapping("/borrarProducto/{id}")
@@ -67,8 +67,8 @@ public class CarritoCompraController {
 
 		return 0.0;
 	}
-
-	@ModelAttribute("mediaVenta")
+	
+	@ModelAttribute("media_venta")
 	public Double calcularMediaVenta() {
 		return carritoServicio.calcularPrecioMedioDeUnaVenta(totalCarrito());
 	}
