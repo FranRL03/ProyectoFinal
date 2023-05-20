@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.salesinaos.triana.dam.proyectoversion3.excepciones.CarritoVacioException;
 import com.salesinaos.triana.dam.proyectoversion3.model.Producto;
 import com.salesinaos.triana.dam.proyectoversion3.service.CarritoCompraAServicio;
 import com.salesinaos.triana.dam.proyectoversion3.service.ProductoServicio;
@@ -72,11 +73,18 @@ public class CarritoCompraController {
 	public Double calcularMediaVenta() {
 		return carritoServicio.calcularPrecioMedioDeUnaVenta(totalCarrito());
 	}
-	
+
 	@PostMapping("/comprado")
-    public String checkout(){
-    	  	carritoServicio.comprobarCompraRealizada();
-    return "redirect:/tienda";
-    }
+	public String checkout() {
+
+		if (carritoServicio.getProductsInCart().isEmpty()) {
+			throw new CarritoVacioException("Carrito vacío");
+
+		} else {
+			carritoServicio.comprobarCompraRealizada();
+
+			return "redirect:/tienda";
+		}
+	}
 
 }
