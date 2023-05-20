@@ -122,16 +122,16 @@
 								<td></td>
 								<td></td>
 								<td>
-									<button type="button" class="btn btn-primary">
-										<a th:href="@{/tienda}" class="enlaceCompra"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+									
+										<a th:href="@{/tienda}" class="enlaceCompra"><button type="button" class="btn btn-primary"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
 												height="16" fill="currentColor" class="bi bi-basket2"
 												viewBox="0 0 16 16">
 												<path
 													d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z" />
 												<path
 													d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z" />
-											</svg>Continuar </a>
-									</button>
+											</svg>Continuar </button></a>
+									
 								</td>
 								<td>
 									<form >
@@ -151,9 +151,12 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">¿Quieres finalizar la compra?</h5>
+              <h5 class="modal-title">¿Quieres finalizar la compra?</h5><br>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div th:if="${total_carrito == 0}" class="modal-body">
+				  <h5 class="text-danger">El carrito está vacío</h5>
+			  </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <form th:action="@{/comprado}" th:object="${venta}" method="post" action="comprado">

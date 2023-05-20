@@ -65,5 +65,6 @@ public class AdminProductoController {
 		productoServicio.edit(p);
 		return "redirect:/adminPro";
 	}
+	
 
 }
