@@ -15,48 +15,7 @@
 
 <body>
 
-	<header>
-		<nav class="navbar navbar-expand-sm shadow p-3 mb-2 bg-body rounded">
-			<div class="container-fluid justify-content-start">
-
-				<!-- LOGO DE LA PÁGINA -->
-
-				<a class="navbar-brand" href="#">
-					<img src="img/Logo-web-San-Bernardo-01-1.jpg" alt="Avatar Logo" style="width:190px;"
-						class="rounded-pill">
-				</a>
-
-
-				<ul class=" nav nav-underline">
-					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="#">Inicio</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Cofradía</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" th:href="@{/tienda}">Tienda</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link">Patrimonio</a>
-					</li>
-
-					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
-						<a class="nav-link" th:href="@{/admin}">Administración</a>
-					</li>
-
-				</ul>
-			</div>
-			<!-- INICIO DE SESIÓN -->
-
-				<button type="button" class="btn btn-danger active ms-auto" data-bs-toggle="modal"
-					data-bs-target="#exampleModal2">
-					<a class="nav-link active" th:href="@{/login}">Log Out</a>
-				</button>
-
-		</nav>
-
-	</header> 
+	<header th:replace="~{fragmentos/cabecera::cabecera}"></header>
 
 	<main class="content">
 

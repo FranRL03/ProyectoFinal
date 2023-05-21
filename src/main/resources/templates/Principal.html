@@ -8,15 +8,19 @@
 	<title>Inicio</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<link rel="stylesheet" href="/css/index.css" type="text/css" th:href="@{/css/index.css}">
-	<link rel="shortcut icon" href="img/EscudoNuevoHermano.png"
-		th:href="@{img/EscudoNuevoHermano.png}">
+	<link rel="shortcut icon" href="img/EscudoNuevoHermano.png" th:href="@{img/EscudoNuevoHermano.png}">
 </head>
 
 <body>
-	
-	 <header th:replace="~{fragmentos/cabecera::cabecera}"></header>
-	
+	<script>
+		AOS.init();
+	</script>
+
+	<header th:replace="~{fragmentos/cabecera::cabecera}"></header>
+
 
 	<!-- CAROUSEL -->
 
@@ -40,7 +44,7 @@
 
 	<!-- MAIN DE OPCIONES -->
 
-	<div class="justify-text text-center pt-4" id="title">
+	<div class="justify-text text-center pt-4" id="title" data-aos="flip-left">
 		<div>
 			<h3> <strong> HERMANDAD DE SAN BERNARDO </strong></h3>
 		</div>
@@ -88,7 +92,7 @@
 
 		<h3 class="text-center pb-5" id="notice"> <strong> NOTICIAS </strong></h3>
 
-		<div class="pt-5 ps-2 border border-2 w-75 shadow p-3 mb-5 bg-body-tertiary rounded">
+		<div class="pt-5 ps-2 border border-2 w-75 shadow p-3 mb-5 bg-body-tertiary rounded" data-aos="fade-down-right">
 			<h5 class="card-title titleNotice"> <strong> Rosario regalado por el Grupo Joven a la Virgen del
 					Refugio</strong>
 			</h5>
@@ -111,7 +115,7 @@
 			</div>
 		</div>
 
-		<div class="d-flex justify-content-end pe-2">
+		<div class="d-flex justify-content-end pe-2" data-aos="fade-left">
 			<div class="pt-5 ps-2 border border-2 w-75 shadow p-3 mb-5 bg-body-tertiary rounded">
 				<h5 class="card-title titleNotice"> <strong> Restauración del Banderín de Santa Bárbara</strong></h5>
 				<div class="d-flex pt-3">
@@ -140,7 +144,7 @@
 			</div>
 		</div>
 
-		<div class="pt-5 ps-2 border border-2 w-75 shadow p-3 mb-5 bg-body-tertiary rounded">
+		<div class="pt-5 ps-2 border border-2 w-75 shadow p-3 mb-5 bg-body-tertiary rounded" data-aos="fade-right">
 			<h5 class="card-title titleNotice"> <strong> Próximas Juras de nuevos Hermanos</strong></h5>
 			<div class="d-flex pt-3">
 				<p class="card-text justify-text fw-light noticePara"> Informamos que las próximas juras de nuevos
@@ -167,7 +171,7 @@
 			</div>
 		</div>
 
-		<div class="d-flex justify-content-end pe-2">
+		<div class="d-flex justify-content-end pe-2" data-aos="fade-up-left">
 			<div class="pt-5 ps-2 border border-2 w-75 shadow p-3 mb-5 bg-body-tertiary rounded">
 				<h5 class="card-title titleNotice"> <strong> Peregrinación de la Hermandad al Rocío </strong></h5>
 				<div class="d-flex pt-3">
@@ -194,6 +198,7 @@
 				</div>
 			</div>
 		</div>
+
 
 	</main>
 
