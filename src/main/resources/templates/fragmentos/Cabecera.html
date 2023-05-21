@@ -18,44 +18,43 @@
 
 	<header th:fragment="cabecera">
 		<nav class="navbar navbar-expand-sm shadow p-3 mb-2 bg-body rounded">
-			<div class="container-fluid justify-content-start">
+            <div class="container-fluid justify-content-start">
 
-				<!-- LOGO DE LA PÁGINA -->
+                <!-- LOGO DE LA PÁGINA -->
 
-				<a class="navbar-brand" href="#">
-					<img src="img/Logo-web-San-Bernardo-01-1.jpg" alt="Avatar Logo" style="width:190px;"
-						class="rounded-pill">
-				</a>
+                <a class="navbar-brand" href="#">
+                    <img src="img/Logo-web-San-Bernardo-01-1.jpg" alt="Avatar Logo" style="width:190px;"
+                        class="rounded-pill">
+                </a>
 
 
-				<ul class=" nav nav-underline">
-					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="#">Inicio</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Cofradía</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" th:href="@{/tienda}">Tienda</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link">Patrimonio</a>
-					</li>
+                <ul class=" nav nav-underline">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#">Cofradía</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Imágenes Titulares</a></li>
+                            <li><a class="dropdown-item" href="#">Pasos</a></li>
+                          </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tienda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Patrimonio</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- INICIO DE SESIÓN -->
 
-					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
-						<a class="nav-link" th:href="@{/admin}">Administración</a>
-					</li>
+            <button type="button" class="btn btn-danger active ms-auto" data-bs-toggle="modal"
+                data-bs-target="#exampleModal2">
+                <a class="nav-link active" th:href="@{/login}">Log Out</a>
+            </button>
 
-				</ul>
-			</div>
-			<!-- INICIO DE SESIÓN -->
-
-			<button type="button" class="btn btn-danger active ms-auto" data-bs-toggle="modal"
-				data-bs-target="#exampleModal2">
-				<a class="nav-link active" th:href="@{/login}">Log Out</a>
-			</button>
-
-		</nav>
+        </nav>
 
 	</header>
 

@@ -46,10 +46,10 @@ footer{
     background-color: rgb(211, 211, 211);
 }
 
-/* ACCSESO HERMANO */
+/* LOGIN */
 
 #fondoAcceso{
-    background-image: url(../img/VirgenPuente.jpeg );
+    background-image: url(img/VirgenPuente.jpeg);
     background-size: 100% 130%;
     background-repeat: no-repeat;
 }
@@ -110,30 +110,15 @@ footer{
     text-align: center;
 }
 
-/* TIENDA */
+/* TIENDA HERMANDAD */
+
+#peana{
+    height: 50%;
+}
 
 .enlaceCompra{
     text-decoration: none;
     color: aliceblue;
-}
-
-/* CSS EN COMÚN */
-
-#title, #card-1, #card-2, #card-3{
-    font-weight: 600;
-    font-family:'Comic Sans MS', Arial, sans-serif;
-}
-
-.titleNotice, footer h5, #tituloNew, .formulario label{
-    color: rgb(76, 31, 119);
-}
-
-#title, #card-1, #card-2, #card-3, #tituloEnlace, #h5titulo{
-    color: rgb(113, 6, 155);
-}
-
-.formulario label, #h5titulo{
-    font-weight: bold;
 }
 
 /* NUEVO PRODUCTO */
@@ -147,10 +132,33 @@ footer{
     background-color: rgb(141, 149, 157, 0.2);
 }
 
-#fondoProducto{
-    background-color: lightgoldenrodyellow;
-}
-
 #carritoerror{
     margin-top: 150px;
+}
+
+/* ESTÁTICAS */
+
+.p{
+
+    color: rgb(59, 23, 88);
+
+}
+
+/* CSS EN COMÚN */
+
+#title, #card-1, #card-2, #card-3{
+    font-weight: 600;
+    font-family:'Comic Sans MS', Arial, sans-serif;
+}
+
+.titleNotice, footer h5, #tituloNew, .formulario label, #tituloProducto, .titulo{
+    color: rgb(76, 31, 119);
+}
+
+#title, #card-1, #card-2, #card-3, #tituloEnlace, #h5titulo{
+    color: rgb(113, 6, 155);
+}
+
+.formulario label, #h5titulo, .titulo{
+    font-weight: bold;
 }
