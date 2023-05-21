@@ -30,29 +30,42 @@
 
                 <ul class=" nav nav-underline">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Inicio</a>
+                        <a class="nav-link" aria-current="page" th:href="@{/}">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#">Cofradía</a>
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Cofradía</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Imágenes Titulares</a></li>
-                            <li><a class="dropdown-item" href="#">Pasos</a></li>
+                            <li><a class="dropdown-item" th:href="@{/titulares}">Imágenes Titulares</a></li>
+                            <li><a class="dropdown-item" th:href="@{/pasos}">Pasos</a></li>
                           </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Tienda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link">Patrimonio</a>
                     </li>
+                    <li class="nav-item" sec:authorize="isAuthenticated()">
+						<a class="nav-link" th:href="@{/tienda}">Tienda</a>
+					</li>
+                    <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
+						<a class="nav-link" th:href="@{/admin/gestion}">Administración</a>
+					</li>
                 </ul>
             </div>
             <!-- INICIO DE SESIÓN -->
 
-            <button type="button" class="btn btn-danger active ms-auto" data-bs-toggle="modal"
-                data-bs-target="#exampleModal2">
-                <a class="nav-link active" th:href="@{/login}">Log Out</a>
-            </button>
+            <div sec:authorize="!isAuthenticated()">
+				<button type="button" class="btn btn-danger active ms-auto" data-bs-toggle="modal"
+					data-bs-target="#exampleModal2">
+					<a class="nav-link active" th:href="@{/login}">Iniciar Sesión</a>
+				</button>
+			</div>
+			
+			<div sec:authorize="isAuthenticated()">
+				<button type="button" class="btn btn-danger active ms-auto" data-bs-toggle="modal"
+					data-bs-target="#exampleModal2">
+					<a class="nav-link active" th:href="@{/login}">Log Out</a>
+				</button>
+			</div>
+
 
         </nav>
 
