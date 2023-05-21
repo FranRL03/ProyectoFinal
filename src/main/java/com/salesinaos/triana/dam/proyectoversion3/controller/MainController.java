@@ -14,6 +14,17 @@ public class MainController {
 	@GetMapping("/")
 	public String index() {
 		return "Principal";
-	} 
+	}
+	
+	@GetMapping("/titulares")
+	public String mostrarTitulares() {
+		return "ImagenesTitulares";
+	}
+	
+	@GetMapping("/pasos")
+	public String mostrarPasos() {
+		return "Pasos";
+	}
+	
 
 }
