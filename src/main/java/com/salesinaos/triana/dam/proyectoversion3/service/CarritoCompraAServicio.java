@@ -3,7 +3,9 @@ package com.salesinaos.triana.dam.proyectoversion3.service;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -102,10 +104,21 @@ public class CarritoCompraAServicio {
     	    productos.clear();
     	}
 	}
+	
+	public double calcularDescuento(double total) {
+		
+		if (total >= 300) {
+			return total - (total * 0.15);
+		} else {
+			return total;
+		}
+	}
 
 	
 	public double calcularPrecioMedioDeUnaVenta(double total) {
 		return total / productos.size();
 	}
+	
+	
 
 }
