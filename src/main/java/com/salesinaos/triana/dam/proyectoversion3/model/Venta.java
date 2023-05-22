@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -34,6 +35,7 @@ public class Venta {
 	private long idVenta;
 	
 	private double precioTotal;
+	
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaVenta;
@@ -76,5 +78,6 @@ public class Venta {
 		}else
 			return 11;
 	}
+	
 
 }

@@ -121,6 +121,11 @@
 					<div th:if="${total_carrito == 0}" class="modal-body">
 						<h5 class="text-danger">El carrito está vacío</h5>
 					</div>
+					<div th:if="${total_carrito >= 300}" class="modal-body">
+						<h5 class="text-info">¡Enhorabuena! Por haber hecho una venta de 300 € o superior le aplicaremos un 15% de descuento <br> <br>
+							<span th:text="${descuento}">0</span> €
+						</h5>
+					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 						<form th:action="@{/comprado}" th:object="${venta}" method="post" action="comprado">
