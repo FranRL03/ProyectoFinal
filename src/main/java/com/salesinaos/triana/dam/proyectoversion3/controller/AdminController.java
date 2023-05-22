@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.salesinaos.triana.dam.proyectoversion3.formbeans.SearchBean;
 import com.salesinaos.triana.dam.proyectoversion3.model.Hermano;
 import com.salesinaos.triana.dam.proyectoversion3.model.Producto;
 import com.salesinaos.triana.dam.proyectoversion3.repo.VentaRepositorio;
@@ -43,8 +44,18 @@ public class AdminController {
 	@GetMapping("/gestion")
 	public String listarTodos (Model model) {
 		model.addAttribute("hermanos", hermanoServicio.findAll());
+		
+		model.addAttribute("searchForm", new SearchBean());
 				return "ViewAdmin";
 	}
+	
+/*	@PostMapping("/search")
+	  public String searchHermano(@ModelAttribute("searchForm") SearchBean searchBean,
+			 Model model){
+	  	model.addAttribute("hermano", hermanoServicio.findByNombre(searchBean.getSearch()));
+	  
+	  return "ViewAdmin";
+	  } */
 	
 	@GetMapping("/nuevo")
 	public String mostrarFormulario(Model model) {
@@ -112,7 +123,22 @@ public class AdminController {
 	@GetMapping("/adminPro")
 	public String listarTodosProductos (Model model) {
 		model.addAttribute("products", productoServicio.findAll());
+		
+		model.addAttribute("searchForm", new SearchBean());
 		return "AdminProductos";
+	}
+	
+	@PostMapping("/search")
+	  public String searchProducto(@ModelAttribute("searchForm") SearchBean searchBean,
+			 Model model){
+	  	model.addAttribute("products", productoServicio.findByNombre(searchBean.getSearch()));
+	  return "AdminProductos";
+	  }
+	
+	@GetMapping("/deleteV2/{id}")
+	public String borrarProductoCompleto(@PathVariable("id") long id){
+		productoServicio.delete(id);
+		return "redirect:/admin/adminPro";
 	}
 	
 	@GetMapping("/delete/{id}")

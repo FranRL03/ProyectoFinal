@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.salesinaos.triana.dam.proyectoversion3.model.Hermano;
+import com.salesinaos.triana.dam.proyectoversion3.model.Producto;
 import com.salesinaos.triana.dam.proyectoversion3.repo.HermanoRepositorio;
 
 @Service
@@ -59,6 +60,10 @@ public class HermanoServicio {
 		
 		return hermanoRepo.sumaDeCuotas();
 		
+	}
+	
+	public List<Hermano> findByNombre(String nombre) {
+		return hermanoRepo.findByNombreContainingIgnoreCase(nombre);
 	}
 
 }

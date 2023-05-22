@@ -1,10 +1,10 @@
 package com.salesinaos.triana.dam.proyectoversion3.formbeans;
 
-public class BuscarBeans {
+public class SearchBean {
 	
 private String search;
 	
-	public void BuscarBean(){
+	public SearchBean(){
 		
 	}
 

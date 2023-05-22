@@ -25,10 +25,10 @@
 					</button></a>
 			</div>
 			<div class="w-25">
-				<form class="ms-auto p-2 pe-5 d-flex" role="search">
-					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success" type="submit">Buscar</button>
-				</form>
+				<form class="ms-auto p-2 pe-5 d-flex" th:action="@{search}" th:object="${searchForm}" method="POST" role="search">
+				<input class="form-control me-2" type="text" name="nombre" placeholder="Search" th:field="*{search}" aria-label="Search">
+				<button class="btn btn-outline-success" type="submit"></button>
+			</form>
 			</div>
 		</div>
 
@@ -72,11 +72,13 @@
 								<!-- Modal footer -->
 								<div class="modal-footer">
 									<a class="btn btn-danger"
-										th:href="@{/admin/delete/{id}(id=${producto.id})}">Confirmar</a>
-									<a class="btn btn-dark" th:href="@{/adminPro}">Denegar</a>
+										th:href="@{/admin/deleteV2/{id}(id=${producto.id})}">Confirmar</a>
+									<a class="btn btn-dark" th:href="@{/admin/adminPro}">Denegar</a>
 								</div>
 							</div>
 						</div>
+					</div>
+					</div>
 					</div>
 
 				</tr>

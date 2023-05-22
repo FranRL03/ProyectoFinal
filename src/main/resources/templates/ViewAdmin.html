@@ -28,10 +28,10 @@
 				<h4>Total de cuotas: <span th:text="${cuota_total}"> 0</span> €</h4>
 			</div>
 			<div class="w-25">
-				<form class="ms-auto p-2 pe-5 d-flex" role="search">
-					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success" type="submit">Buscar</button>
-				</form>
+				<form class="ms-auto p-2 pe-5 d-flex" th:action="@{search}" th:object="${searchForm}" method="POST" role="search">
+				<input class="form-control me-2" type="text" name="nombre" placeholder="Search" th:field="*{search}" aria-label="Search">
+				<button class="btn btn-outline-success" type="submit"></button>
+			</form>
 			</div>
 		</div>
 

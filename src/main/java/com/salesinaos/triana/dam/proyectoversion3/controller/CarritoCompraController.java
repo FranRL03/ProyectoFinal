@@ -26,9 +26,6 @@ public class CarritoCompraController {
 	private ProductoServicio productoServicio;
 
 	@Autowired
-	private VentaServicio vs;
-
-	@Autowired
 	public void ShoppingCarritoController(CarritoCompraAServicio carritoServicio, ProductoServicio productoServicio,
 			VentaServicio ventaServicio) {
 		this.carritoServicio = carritoServicio;
@@ -71,12 +68,6 @@ public class CarritoCompraController {
 			}
 			
 			return total;
-
-		/*	if (total >= 300) {
-				return total - (total * 0.15);
-			} else {
-				return total;
-			} */
 		} 
 
 		return 0.0;
