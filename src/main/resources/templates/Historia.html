@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+   <link rel="stylesheet" href="../static/css/index.css" type="text/css" th:href="@{/css/index.css}">
+	<link rel="shortcut icon" href="img/EscudoNuevoHermano.png"
+		th:href="@{img/EscudoNuevoHermano.png}">
+    <title>Historia</title>
+</head>
+
+<body>
+	
+	<header th:replace="~{fragmentos/cabecera::cabecera}"></header>
+	
+    <main class="content">
+
+        <div class="d-flex align-items-start">
+            <img src="img/EscudoNuevoHermano.png" th:src="@{img/EscudoNuevoHermano.png}" alt="Escudo San Bernardo"
+                width="13%">
+            <h5 id="h5titulo">
+                Real, Ilustre y Fervorosa Hermandad Sacramental de la Pura y Limpia Concepción de la Santísima Virgen
+                María,
+                <br>
+                Ánimas Benditas del Purgatorio y Cofradía de Nazarenos del Santísimo Cristo de la Salud, <br>
+                María Santísima del Refugio, Santa Cruz, Nuestra Señora del Patrocinio, Santa Bárbara y San Bernardo.
+            </h5>
+        </div>
+
+        <div class="ms-5">
+            <p class="me-5 pt-5">
+                Tiene su fundación como Cofradía de Penitencia en 1748, haciendo su primera estación en 1764. En el año
+                1851 se une a la de gloria (del siglo XVIII) y en 1966 a la Sacramental (del siglo XVI), todas ellas
+                erigidas desde su creación en la Parroquia, de la que nunca se han movido. El año 1943 se consagra al
+                Inmaculado Corazón de María.
+            </p>
+        </div>
+
+        <div class="ms-5">
+            <div class="d-flex">
+                <p>
+                    Es conocida como la Hermandad de los toreros, ya que a lo largo de su historia han pertenecido y
+                    siguen
+                    perteneciendo a ella, los más famosos diestros de nuestra ciudad. Está vinculada al Arma de
+                    Artillería,
+                    sobre todo a partir de 1936, en que gracias a la colaboración de las Fábricas Militares radicadas en
+                    el
+                    barrio, rehace buena parte del paso de palio y otros enseres procesionales, y al cuerpo de Bomberos
+                    de
+                    la
+                    ciudad. <br> <br>
+                    Hace estación de penitencia con dos pasos. En el primero, tallado y dorado, con personalísimos y
+                    airosos
+                    candelabros, realizados por Francisco Ruiz, con cartelas en sus esquinas pintadas por Blas
+                    Cantarero,
+                    restaurado en los talleres de Calvo Camacho, figura la Imagen del Santísimo Cristo de la Salud, obra
+                    sin
+                    documentar que se atribuye a Andrés Cansino, realizado en 1669. El llamador de este paso reproduce
+                    el puente
+                    de San Bernardo. El monte está formado por claveles rojo‑sangre y lirios morados. <br> <br>
+
+                    En el segundo, figura la Santísima Virgen del Refugio, obra de Sebastián Santos Rojas, realizada en
+                    1939. Todos los bordados, sobre terciopelo rojo, siguen el diseño de Juan Manuel Rodríguez Ojeda, si
+                    bien el techo fue restaurado en el taller de Caro y más tarde pasado en el Convento de Santa Isabel,
+                    y el manto y faldones pasados en el taller de José Ramón Paleteiro. Los candelabros de cola y los
+                    respiraderos, en plata de ley, fueron confeccionados en Orfebrería Ramos, y tienen adornos dorados
+                    los primeros y completamente dorados los últimos. La corona, igualmente en plata de ley,
+                    sobredorada, es obra de los talleres de Seco. Los varales son de Sironi, maestro que fue de la
+                    Fábrica de Artillería, así como la peana sobre la que va Nuestra Señora. La saya que luce la
+                    Santísima Virgen es de principios de siglo, pasada a nuevo tisú de plata en los talleres de
+                    Paleteiro, con bordados del temo completo de torear de José Claro "Pepete". En el frontal figuran,
+                    entre los demás candeleros, seis cañones dorados, y en el faldón delantero la imagen bordada en
+                    sedas de Santa Bárbara. Tanto esta figura como el medallón central del techo de palio son obras de
+                    Bárbara Pardal, meritísima bordadora, vecina del barrio.
+                </p>
+                <img src="img/SB.jpeg" alt="" width="500" height="400" class="me-5 ps-4">
+            </div>
+            <div class="d-flex pt-5 ">
+                <img src="img/Iglesia.jpg" alt="" width="300" height="300">
+
+                <p class="ps-3 me-5">
+                    Entre todas las de Sevilla, es la que más velas rizadas lleva, ya que tanto el frontal como los
+                    laterales están cubiertos por ellas. Las flores son, siempre, claveles blancos y azahar, en jarras
+                    doradas. <br>
+                    Es una de las cofradías que cuenta con mayor número de nazarenos.
+                </p>
+
+
+            </div>
+        </div>
+
+
+
+
+    </main>
+    
+    <footer th:replace="~{fragmentos/footer::footer}"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

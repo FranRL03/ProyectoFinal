@@ -14,6 +14,7 @@ import com.salesinaos.triana.dam.proyectoversion3.excepciones.CarritoVacioExcept
 import com.salesinaos.triana.dam.proyectoversion3.model.Producto;
 import com.salesinaos.triana.dam.proyectoversion3.service.CarritoCompraAServicio;
 import com.salesinaos.triana.dam.proyectoversion3.service.ProductoServicio;
+import com.salesinaos.triana.dam.proyectoversion3.service.VentaServicio;
 
 @Controller
 public class CarritoCompraController {
@@ -25,7 +26,8 @@ public class CarritoCompraController {
 	private ProductoServicio productoServicio;
 
 	@Autowired
-	public void ShoppingCarritoController(CarritoCompraAServicio carritoServicio, ProductoServicio productoServicio) {
+	public void ShoppingCarritoController(CarritoCompraAServicio carritoServicio, ProductoServicio productoServicio,
+			VentaServicio ventaServicio) {
 		this.carritoServicio = carritoServicio;
 		this.productoServicio = productoServicio;
 	}
@@ -67,11 +69,6 @@ public class CarritoCompraController {
 		}
 
 		return 0.0;
-	}
-	
-	@ModelAttribute("media_venta")
-	public Double calcularMediaVenta() {
-		return carritoServicio.calcularPrecioMedioDeUnaVenta(totalCarrito());
 	}
 
 	@PostMapping("/comprado")

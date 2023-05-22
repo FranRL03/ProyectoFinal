@@ -33,11 +33,11 @@
 						<input type="text" name="nombre" id="nombre" th:field="*{nombre}" required><br><br>
 
 						<label for="precio" class="form-label">Precio del producto</label><br>
-						<input type="number" class="form-control w-50" aria-label="precio" id="precio" th:field="*{pvp}"
+						<input type="number" class="form-control w-50" min="0,1" aria-label="precio" id="precio" th:field="*{pvp}"
 							required><br>
 
 						<label for="cantidad" class="form-label">Cantidad</label><br>
-						<input type="number" class="form-control w-50" aria-label="cantidad" id="cantidad"
+						<input type="number" class="form-control w-50" min="1" aria-label="cantidad" id="cantidad"
 							th:field="*{cantidad}" required><br>
 
 						<label for="descripcion">Descripción del producto</label><br>

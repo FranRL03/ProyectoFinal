@@ -49,7 +49,7 @@ footer{
 /* LOGIN */
 
 #fondoAcceso{
-    background-image: url(img/VirgenPuente.jpeg);
+    background-image: url(/img/VirgenPuente.jpeg);
     background-size: 100% 130%;
     background-repeat: no-repeat;
 }
@@ -57,7 +57,7 @@ footer{
 #divForm{
     width: 370px;
     height: 566px;
-    background-color: rgb(236, 236, 236);
+    background-color: rgb(236, 236, 236, 0.7);
 }
 
 #form{
@@ -132,6 +132,10 @@ footer{
     background-color: rgb(141, 149, 157, 0.2);
 }
 
+#fondoProducto{
+	 background-color: rgb(147, 116, 154);
+}
+
 #carritoerror{
     margin-top: 150px;
 }
@@ -159,6 +163,6 @@ footer{
     color: rgb(113, 6, 155);
 }
 
-.formulario label, #h5titulo, .titulo{
+.formulario label, #h5titulo, .titulo, #h4titulo, #form label{
     font-weight: bold;
 }

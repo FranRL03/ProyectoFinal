@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesinaos.triana.dam.proyectoversion3.model.Hermano;
 import com.salesinaos.triana.dam.proyectoversion3.model.Producto;
+import com.salesinaos.triana.dam.proyectoversion3.repo.VentaRepositorio;
 import com.salesinaos.triana.dam.proyectoversion3.service.HermanoServicio;
 import com.salesinaos.triana.dam.proyectoversion3.service.ProductoServicio;
+
 
 @Controller
 @RequestMapping("/admin")
@@ -24,6 +26,9 @@ public class AdminController {
 	
 	@Autowired
 	private ProductoServicio productoServicio;
+	
+	@Autowired
+	private VentaRepositorio vs;
 	
 	public AdminController(HermanoServicio service, ProductoServicio productoServicio) {
 		this.hermanoServicio = service;
@@ -58,7 +63,7 @@ public class AdminController {
 	@PostMapping("/addHermano")
 	public String procesarFormulario(@ModelAttribute("hermano") Hermano h) {
 		hermanoServicio.add(h);
-		return "redirect:/gestion";
+		return "redirect:/admin/gestion";
 	}
 	
 	@GetMapping("/editar/{numHer}")
@@ -77,7 +82,7 @@ public class AdminController {
 			model.addAttribute("hermano", aEditar);
 			return "FormularioNuevoHermano";
 		} else {
-			return "redirect:/gestion";
+			return "redirect:/admin/gestion";
 		}	
 		
 	}
@@ -85,13 +90,13 @@ public class AdminController {
 	@PostMapping("/editar/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("hermano") Hermano h) {
 		hermanoServicio.edit(h);
-		return "redirect:/gestion";
+		return "redirect:/admin/gestion";
 	}
 	
 	@GetMapping("/borrar/{numHer}")
 	public String borrar(@PathVariable("numHer") long numHer) {
 		hermanoServicio.deleteById(numHer);
-		return "redirect:/gestion";
+		return "redirect:/admin/gestion";
 	}
 	
 	@ModelAttribute("cuota_total")
@@ -113,7 +118,7 @@ public class AdminController {
 	@GetMapping("/delete/{id}")
 	public String borrarProducto(@PathVariable("id") long id) {
 		productoServicio.restarCantidadProducto(id, 1);
-		return "redirect:/adminPro";
+		return "redirect:/admin/adminPro";
 	}
 	
 	@GetMapping("/nuevoProducto")
@@ -126,7 +131,7 @@ public class AdminController {
 	@PostMapping("/addProducto")
 	public String procesarFormularioProducto(@ModelAttribute("producto") Producto p) {
 		productoServicio.add(p);
-		return "redirect:/adminPro";
+		return "redirect:/admin/adminPro";
 	}
 	
 	@GetMapping("/editarProducto/{id}")
@@ -138,7 +143,7 @@ public class AdminController {
 			model.addAttribute("producto", editPro);
 			return "FormularioNuevoProducto";
 		} else {
-			return "redirect:/adminPro";
+			return "redirect:/admin/adminPro";
 		}	
 		
 	}
@@ -146,8 +151,21 @@ public class AdminController {
 	@PostMapping("/editarProducto")
 	public String procesarFormularioEdicion(@ModelAttribute("producto") Producto p) {
 		productoServicio.edit(p);
-		return "redirect:/adminPro";
+		return "redirect:/admin/adminPro";
 	}
 	
+	//===============================================================================================
+	
+	@GetMapping("/datos")
+	public String listarDatosVentas(Model model) {
+		model.addAttribute("ventas", vs.findAll());
+		return "Ventas";
+	}
+	
+	@GetMapping("/deleteVenta/{idVenta}")
+	public String borrarVenta(@PathVariable("idVenta") long idVenta) {
+		vs.deleteById(idVenta);
+		return "redirect:/admin/datos";
+	}
 
 }

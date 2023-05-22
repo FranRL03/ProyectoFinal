@@ -26,5 +26,10 @@ public class MainController {
 		return "Pasos";
 	}
 	
+	@GetMapping("/historia")
+	public String mostrarHistoria() {
+		return "Historia";
+	}
+	
 
 }

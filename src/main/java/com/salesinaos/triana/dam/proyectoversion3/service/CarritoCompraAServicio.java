@@ -103,6 +103,7 @@ public class CarritoCompraAServicio {
     	}
 	}
 
+	
 	public double calcularPrecioMedioDeUnaVenta(double total) {
 		return total / productos.size();
 	}

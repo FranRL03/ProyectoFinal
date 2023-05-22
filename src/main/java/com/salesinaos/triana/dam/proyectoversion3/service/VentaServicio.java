@@ -42,6 +42,4 @@ public class VentaServicio extends BaseService<Venta, Long, VentaRepositorio>{
 	public Venta findById(long id) {
 		return ventaRepo.findById(id).orElse(null);
 	}
-	
-
 }
