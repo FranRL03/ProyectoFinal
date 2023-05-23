@@ -31,5 +31,10 @@ public class MainController {
 		return "Historia";
 	}
 	
+	@GetMapping("/cortejo")
+	public String mostrarCortejo() {
+		return "Cortejo";
+	}
+	
 
 }
