@@ -124,6 +124,8 @@ public class AdminController {
 	public String listarTodosProductos (Model model) {
 		model.addAttribute("products", productoServicio.findAll());
 		
+		model.addAttribute("searchForm", new SearchBean());
+		
 		return "AdminProductos";
 	}
 	

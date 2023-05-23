@@ -25,10 +25,12 @@
 					</button></a>
 			</div>
 			<div class="w-25">
-				<form class="ms-auto p-2 pe-5 d-flex" th:action="@{search}" th:object="${searchForm}" method="POST" role="search">
-				<input class="form-control me-2" type="text" name="nombre" placeholder="Search" th:field="*{search}" aria-label="Search">
-				<button class="btn btn-outline-success" type="submit"></button>
-			</form>
+				<form class="ms-auto p-2 pe-5 d-flex" th:action="@{search}" th:object="${searchForm}" method="POST"
+					role="search">
+					<input class="form-control me-2" type="text" name="nombre" placeholder="Search" th:field="*{search}"
+						aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">Buscar</button>
+				</form>
 			</div>
 		</div>
 
@@ -71,9 +73,18 @@
 								<div class="modal-body">¿Quieres borrarlo?</div>
 								<!-- Modal footer -->
 								<div class="modal-footer">
-									<a class="btn btn-danger"
-										th:href="@{/admin/deleteV2/{id}(id=${producto.id})}">Confirmar</a>
-									<a class="btn btn-dark" th:href="@{/admin/adminPro}">Denegar</a>
+									
+									<div th:if="${producto.cantidad > 1}">
+										<a class="btn btn-danger"
+											th:href="@{/admin/delete/{id}(id=${producto.id})}">Confirmar</a>
+										<a class="btn btn-dark" th:href="@{/admin/adminPro}">Denegar</a>
+									</div>
+									
+									<div th:if="${producto.cantidad == 1}">
+										<a class="btn btn-danger"
+											th:href="@{/admin/deleteV2/{id}(id=${producto.id})}">Confirmar</a>
+										<a class="btn btn-dark" th:href="@{/admin/adminPro}">Denegar</a>
+									</div>
 								</div>
 							</div>
 						</div>
