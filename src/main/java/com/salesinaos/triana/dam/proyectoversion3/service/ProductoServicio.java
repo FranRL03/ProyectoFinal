@@ -9,7 +9,7 @@ import com.salesinaos.triana.dam.proyectoversion3.model.Producto;
 import com.salesinaos.triana.dam.proyectoversion3.repo.ProductoRepositorio;
 
 @Service
-public class ProductoServicio extends BaseService <Producto, Long, ProductoRepositorio> {
+public class ProductoServicio extends  BaseService <Producto, Long, ProductoRepositorio> {
 	
 	@Autowired
 	private ProductoRepositorio productoRepo;

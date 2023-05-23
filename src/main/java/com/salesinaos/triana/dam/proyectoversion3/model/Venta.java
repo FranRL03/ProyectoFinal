@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Random;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -57,11 +56,6 @@ public class Venta {
 		lv.setVenta(this);
 		this.lineaDeVenta.add(lv);
 	}
-	
-	/*	public void addLineaDeVenta(LineaDeVenta lineaV) {
-			this.lineaDeVenta.add(lineaV);
-			lineaV.setVenta(this);
-		} */
 		
 		public void removeUnaLineaDeVenta(LineaDeVenta lineaV) {
 			lineaV.setVenta(null);

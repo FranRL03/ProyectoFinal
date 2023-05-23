@@ -10,22 +10,10 @@ public abstract class BaseService<T, ID, R extends JpaRepository<T, ID>>{
 	@Autowired
 	protected R repository;
 	
-	
-	/**
-	 * Muestra todos los objetos de la lista
-	 * 
-	 * @return devuelve una lista
-	 */
 	public List<T> findAll() {
 		return repository.findAll();
 	}
 
-	/**
-	 * Busca el objeto por su id
-	 * 
-	 * @param id
-	 * @return devuelvo el objeto o nulo si no lo ha encontrado 
-	 */
 	
 	public T findById(ID id) {
 		return repository.findById(id).orElse(null);

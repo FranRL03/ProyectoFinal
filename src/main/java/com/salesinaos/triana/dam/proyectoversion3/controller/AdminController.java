@@ -49,13 +49,13 @@ public class AdminController {
 				return "ViewAdmin";
 	}
 	
-/*	@PostMapping("/search")
+	@PostMapping("/searchV2")
 	  public String searchHermano(@ModelAttribute("searchForm") SearchBean searchBean,
 			 Model model){
-	  	model.addAttribute("hermano", hermanoServicio.findByNombre(searchBean.getSearch()));
+	  	model.addAttribute("hermanos", hermanoServicio.findByNombre(searchBean.getSearch()));
 	  
 	  return "ViewAdmin";
-	  } */
+	  } 
 	
 	@GetMapping("/nuevo")
 	public String mostrarFormulario(Model model) {
@@ -124,7 +124,6 @@ public class AdminController {
 	public String listarTodosProductos (Model model) {
 		model.addAttribute("products", productoServicio.findAll());
 		
-		model.addAttribute("searchForm", new SearchBean());
 		return "AdminProductos";
 	}
 	
