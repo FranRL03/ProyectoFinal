@@ -43,6 +43,9 @@
 						<span th:text="${venta.precioTotal-(venta.precioTotal * 0.15)}"></span>
 					</td>
 					<td th:text="${venta.fechaVenta}"></td>
+					<span>
+						<td th:text="${lineaDeVenta : venta "></td> ===============================================
+					</span>
 					<td><button th:attr="data-bs-target='#modalBorrado'+${venta.idVenta}" data-bs-toggle="modal"
 							class="btn btn-outline-danger" type="button">Eliminar</button><button
 							class="btn btn-outline-warning" type="button"
