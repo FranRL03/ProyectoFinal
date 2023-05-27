@@ -6,11 +6,13 @@ function login() {
 
     if (user == "user" && pass == "1234") {
         window.location = "Principal.html"
-    }if (user == "admin" && pass == "admin") {
-        window.location = "login.html"
-    } 
-
+    }else if (user == "admin" && pass == "admin") {
+        window.location = "Principal.html"
+    } else {
+		alert("Usuario o contraseña incorrecto")
+	}
 }
+
 
 
 

@@ -35,7 +35,6 @@ public class Venta {
 	private long idVenta;
 	
 	private double precioTotal;
-	private long idCliente;
 	
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -48,7 +47,7 @@ public class Venta {
 	private  List<LineaDeVenta> lineaDeVenta = new ArrayList<LineaDeVenta>();
 	
 	@ManyToOne
-	private Usuario user;
+	private Usuario usuario;
 	
 	public List<LineaDeVenta> getLineaDeVentas(){
 		return Collections.unmodifiableList(lineaDeVenta);

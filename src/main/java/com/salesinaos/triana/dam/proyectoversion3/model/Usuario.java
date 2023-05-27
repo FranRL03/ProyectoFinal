@@ -37,7 +37,7 @@ public class Usuario implements UserDetails {
 	
 	private boolean admin;
 	
-	@OneToMany (mappedBy = "user",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany (mappedBy = "usuario",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private  List<Venta> lineaDeVenta = new ArrayList<>();
 
 	@Override
