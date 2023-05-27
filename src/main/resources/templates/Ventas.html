@@ -32,17 +32,21 @@
 					<th scope="col">PRECIO_TOTAL</th>
 					<th scope="col">PRECIO DESCUENTO</th>
 					<th scope="col">FECHA</th>
+					<th scope="col">ID_CLIENTE</th>
 					<th scope="col"></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="venta : ${ventas}">
 					<th scope="row" th:text="${venta.idVenta}"></th>
-					<td th:text="${venta.precioTotal}"></td>
+					<td th:text="${#numbers.formatCurrency(venta.precioTotal)}"></td>
 					<td th:if="${venta.precioTotal >= 300}">
-						<span th:text="${venta.precioTotal-(venta.precioTotal * 0.15)}"></span>
+						<span th:text="${#numbers.formatCurrency(venta.precioTotal-(venta.precioTotal * 0.15))}">0</span>
 					</td>
-					<td th:text="${venta.fechaVenta}"></td>
+					<td th:if="${venta.precioTotal < 300}">0
+					</td>
+					<td th:text="${#temporals.format(venta.fechaVenta, 'dd/MM/yyyy')}"></td>
+					<td th:text="${venta.usuario.id}"></td>
 					<td><button th:attr="data-bs-target='#modalBorrado'+${venta.idVenta}" data-bs-toggle="modal"
 							class="btn btn-outline-danger" type="button">Eliminar</button><button
 							class="btn btn-outline-warning" type="button"
@@ -93,12 +97,14 @@
 										<tr>
 											<th scope="col">Unidades</th>
 											<th scope="col">Precio Unidades</th>
+											<th scope="col">Nombre Producto</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr th:each="lineaVenta : ${venta.lineaDeVenta}">
 											<td scope="row" th:text="${lineaVenta.unidades}"></td>
-											<td th:text="${lineaVenta.precioUnidades}"></td>
+											<td th:text="${#numbers.formatCurrency(lineaVenta.precioUnidades)}"></td>
+											<td th:text="${lineaVenta.producto.nombre}"></td>
 										</tr>
 									</tbody>
 								</table>

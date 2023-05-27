@@ -3,6 +3,7 @@ package com.salesinaos.triana.dam.proyectoversion3.controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,9 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesinaos.triana.dam.proyectoversion3.excepciones.CarritoVacioException;
 import com.salesinaos.triana.dam.proyectoversion3.model.Producto;
+import com.salesinaos.triana.dam.proyectoversion3.model.Usuario;
+import com.salesinaos.triana.dam.proyectoversion3.repo.UsuarioRepositorio;
+import com.salesinaos.triana.dam.proyectoversion3.repo.VentaRepositorio;
 import com.salesinaos.triana.dam.proyectoversion3.service.CarritoCompraAServicio;
 import com.salesinaos.triana.dam.proyectoversion3.service.ProductoServicio;
-import com.salesinaos.triana.dam.proyectoversion3.service.VentaServicio;
 
 @Controller
 public class CarritoCompraController {
@@ -24,10 +27,15 @@ public class CarritoCompraController {
 
 	@Autowired
 	private ProductoServicio productoServicio;
-
+	
 	@Autowired
-	public void ShoppingCarritoController(CarritoCompraAServicio carritoServicio, ProductoServicio productoServicio,
-			VentaServicio ventaServicio) {
+	private UsuarioRepositorio userRepo;
+	
+	@Autowired
+	private VentaRepositorio vs;
+	
+	@Autowired
+	public void ShoppingCarritoController(CarritoCompraAServicio carritoServicio, ProductoServicio productoServicio) {
 		this.carritoServicio = carritoServicio;
 		this.productoServicio = productoServicio;
 	}
@@ -45,7 +53,7 @@ public class CarritoCompraController {
 
 		carritoServicio.addProducto(productoServicio.findById(id));
 
-		return "redirect:/tienda";
+		return "redirect:/carrito";
 	}
 
 	@GetMapping("/borrarProducto/{id}")
@@ -77,18 +85,33 @@ public class CarritoCompraController {
 	public Double calcularDescuento() {
 		return carritoServicio.calcularDescuento(totalCarrito());
 	}
+	
+	@ModelAttribute("subtotal")
+	public double calcularSubTotal() {
+		
+		return carritoServicio.calcularSubTotal();
+	}
+		
+		
 
 	@PostMapping("/comprado")
-	public String checkout() {
+	public String checkout(@AuthenticationPrincipal Usuario user) {
 
 		if (carritoServicio.getProductsInCart().isEmpty()) {
 			throw new CarritoVacioException("Carrito vacío");
 
 		} else {
-			carritoServicio.comprobarCompraRealizada();
+			userRepo.save(user);
+			carritoServicio.comprobarCompraRealizada(user);
 
 			return "redirect:/tienda";
 		}
+	}
+	
+	@GetMapping("/historial")
+	public String listarDatosVentas(Model model) {
+		model.addAttribute("ventas", vs.findAll());
+		return "HistorialVentas";
 	}
 
 }

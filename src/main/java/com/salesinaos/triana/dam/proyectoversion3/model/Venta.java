@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -44,6 +45,9 @@ public class Venta {
 	@ToString.Exclude
 	@OneToMany (mappedBy = "venta",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private  List<LineaDeVenta> lineaDeVenta = new ArrayList<LineaDeVenta>();
+	
+	@ManyToOne
+	private Usuario usuario;
 	
 	public List<LineaDeVenta> getLineaDeVentas(){
 		return Collections.unmodifiableList(lineaDeVenta);

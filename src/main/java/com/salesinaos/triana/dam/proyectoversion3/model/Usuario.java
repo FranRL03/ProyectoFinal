@@ -1,13 +1,15 @@
 package com.salesinaos.triana.dam.proyectoversion3.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+import javax.persistence.OneToMany;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -34,6 +36,9 @@ public class Usuario implements UserDetails {
 	private String password;
 	
 	private boolean admin;
+	
+	@OneToMany (mappedBy = "usuario",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	private  List<Venta> lineaDeVenta = new ArrayList<>();
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

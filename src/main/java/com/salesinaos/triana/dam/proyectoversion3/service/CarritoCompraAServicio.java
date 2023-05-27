@@ -13,6 +13,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.salesinaos.triana.dam.proyectoversion3.model.LineaDeVenta;
 import com.salesinaos.triana.dam.proyectoversion3.model.Producto;
+import com.salesinaos.triana.dam.proyectoversion3.model.Usuario;
 import com.salesinaos.triana.dam.proyectoversion3.model.Venta;
 
 @Service
@@ -77,7 +78,7 @@ public class CarritoCompraAServicio {
 		return Collections.unmodifiableMap(productos);
 	}
 
-	public void comprobarCompraRealizada() {
+	public void comprobarCompraRealizada(Usuario user) {
     	Venta v = new Venta();
     	v.setFechaVenta(LocalDate.now());
     	double precioT =0.0;
@@ -97,6 +98,7 @@ public class CarritoCompraAServicio {
     	        precioT += productos.get(p) * p.getPvp();
     	    }
     	    
+    	    v.setUsuario(user);
     	    v.setPrecioTotal(precioT);
     	    ventaServicio.save(v);
     	    productos.clear();
@@ -110,6 +112,17 @@ public class CarritoCompraAServicio {
 		} else {
 			return total;
 		}
+	}
+	
+	public double calcularSubTotal() {
+		
+		double subtotal = 0.0;
+		
+		for(Producto p : productos.keySet()) {
+			subtotal += productos.get(p) * p.getPvp();
+		}
+		
+		return subtotal;
 	}
 	
 	
