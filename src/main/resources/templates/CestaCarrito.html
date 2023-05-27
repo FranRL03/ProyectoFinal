@@ -60,7 +60,7 @@
 
 
 
-									<a th:href="@{/borrarProducto/{id}(id=${element.key.id})}" class="enlaceCompra">
+									<a th:href="@{/shop/borrarProducto/{id}(id=${element.key.id})}" class="enlaceCompra">
 										<button type="button" class="btn btn-danger"><span
 												class="glyphicon glyphicon-remove"></span> Eliminar </button>
 									</a>
@@ -85,7 +85,7 @@
 								<td></td>
 								<td>
 
-									<a th:href="@{/tienda}" class="enlaceCompra"><button type="button"
+									<a th:href="@{/user/tienda}" class="enlaceCompra"><button type="button"
 											class="btn btn-primary"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
 												height="16" fill="currentColor" class="bi bi-basket2"
 												viewBox="0 0 16 16">
@@ -128,7 +128,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						<form th:action="@{/comprado}" th:object="${venta}" method="post" action="comprado">
+						<form th:action="@{/shop/comprado}" th:object="${venta}" method="post" action="comprado">
 							<button type="submit" name="comprado" value="comprado" class="btn btn-warning"
 								data-bs-dismiss="modal">Finalizar Compra</button>
 						</form>

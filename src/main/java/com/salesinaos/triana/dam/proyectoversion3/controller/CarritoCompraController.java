@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesinaos.triana.dam.proyectoversion3.excepciones.CarritoVacioException;
 import com.salesinaos.triana.dam.proyectoversion3.model.Producto;
@@ -20,6 +21,7 @@ import com.salesinaos.triana.dam.proyectoversion3.service.CarritoCompraAServicio
 import com.salesinaos.triana.dam.proyectoversion3.service.ProductoServicio;
 
 @Controller
+@RequestMapping("/shop")
 public class CarritoCompraController {
 
 	@Autowired
@@ -53,14 +55,14 @@ public class CarritoCompraController {
 
 		carritoServicio.addProducto(productoServicio.findById(id));
 
-		return "redirect:/carrito";
+		return "redirect:/shop/carrito";
 	}
 
 	@GetMapping("/borrarProducto/{id}")
 	public String removeProductFromCart(@PathVariable("id") Long id) {
 
 		carritoServicio.removeProducto(productoServicio.findById(id));
-		return "redirect:/carrito";
+		return "redirect:/shop/carrito";
 	}
 
 	@ModelAttribute("total_carrito")
@@ -104,7 +106,7 @@ public class CarritoCompraController {
 			userRepo.save(user);
 			carritoServicio.comprobarCompraRealizada(user);
 
-			return "redirect:/tienda";
+			return "redirect:/user/tienda";
 		}
 	}
 	

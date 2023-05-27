@@ -25,7 +25,7 @@
 					</button></a>
 			</div>
 			<div class="w-25">
-				<form class="ms-auto p-2 pe-5 d-flex" th:action="@{search}" th:object="${searchForm}" method="POST"
+				<form class="ms-auto p-2 pe-5 d-flex" th:action="@{/ventas/search}" th:object="${searchForm}" method="POST"
 					role="search">
 					<input class="form-control me-2" type="text" name="nombre" placeholder="Search" th:field="*{search}"
 						aria-label="Search">
@@ -55,7 +55,7 @@
 					<td th:text="${producto.nombre}" class="text-center">Nombre</td>
 					<td th:text="${producto.cantidad}" clasd="text-center">Cantidad</td>
 					<td th:text="${producto.pvp}" class="text-center">Pvp</td>
-					<td class="celda"> <a th:href="@{/admin/editarProducto/{id}(id=${producto.id})}"><button
+					<td class="celda"> <a th:href="@{/ventas/editarProducto/{id}(id=${producto.id})}"><button
 								class="btn btn-outline-info" type="button">Editar</button></a>
 						<button th:attr="data-bs-target='#modalBorrado'+${producto.id}" data-bs-toggle="modal"
 							class="btn btn-outline-danger" type="button">Eliminar</button>
@@ -76,14 +76,14 @@
 									
 									<div th:if="${producto.cantidad > 1}">
 										<a class="btn btn-danger"
-											th:href="@{/admin/delete/{id}(id=${producto.id})}">Confirmar</a>
+											th:href="@{/ventas/delete/{id}(id=${producto.id})}">Confirmar</a>
 										<a class="btn btn-dark" th:href="@{/admin/adminPro}">Denegar</a>
 									</div>
 									
 									<div th:if="${producto.cantidad == 1}">
 										<a class="btn btn-danger"
-											th:href="@{/admin/deleteV2/{id}(id=${producto.id})}">Confirmar</a>
-										<a class="btn btn-dark" th:href="@{/admin/adminPro}">Denegar</a>
+											th:href="@{/ventas/deleteV2/{id}(id=${producto.id})}">Confirmar</a>
+										<a class="btn btn-dark" th:href="@{/ventas/adminPro}">Denegar</a>
 									</div>
 								</div>
 							</div>

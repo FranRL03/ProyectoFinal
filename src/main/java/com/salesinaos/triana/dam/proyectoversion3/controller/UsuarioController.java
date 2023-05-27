@@ -6,19 +6,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesinaos.triana.dam.proyectoversion3.formbeans.SearchBean;
 import com.salesinaos.triana.dam.proyectoversion3.service.ProductoServicio;
-import com.salesinaos.triana.dam.proyectoversion3.service.VentaServicio;
 
 @Controller
+@RequestMapping("/user")
 public class UsuarioController {
 	
 	@Autowired
 	private ProductoServicio productoServicio;
-	
-	@Autowired
-	private VentaServicio ventaServicio;
 	
 	@GetMapping("/tienda")
 	public String mostrarProductos(Model model) {

@@ -33,7 +33,7 @@ public class AdminController {
 	
 	public AdminController(HermanoServicio service, ProductoServicio productoServicio) {
 		this.hermanoServicio = service;
-		this.productoServicio = productoServicio;
+		//this.productoServicio = productoServicio;
 	}
 	
 	@GetMapping("/")
@@ -120,7 +120,7 @@ public class AdminController {
 	
 	//=====================================================================================
 	
-	@GetMapping("/adminPro")
+/*	@GetMapping("/adminPro")
 	public String listarTodosProductos (Model model) {
 		model.addAttribute("products", productoServicio.findAll());
 		
@@ -181,8 +181,6 @@ public class AdminController {
 		return "redirect:/admin/adminPro";
 	}
 	
-	//===============================================================================================
-	
 	@GetMapping("/datos")
 	public String listarDatosVentas(Model model) {
 		model.addAttribute("ventas", vs.findAll());
@@ -193,6 +191,6 @@ public class AdminController {
 	public String borrarVenta(@PathVariable("idVenta") long idVenta) {
 		vs.deleteById(idVenta);
 		return "redirect:/admin/datos";
-	}
+	} */
 
 }

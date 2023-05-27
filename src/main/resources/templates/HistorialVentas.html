@@ -18,13 +18,6 @@
 
 	<main class="content">
 
-		<div class="ps-5">
-			<a class="nav-link" th:href="@{/}"><button type="button" class="btn btn-outline-secondary"> Inicio
-				</button></a>
-		</div>
-
-		<hr>
-
 		<div th:each="venta : ${ventas}">
 			<table class="table table-info table-striped">
 				<thead>

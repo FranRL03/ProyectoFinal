@@ -21,7 +21,7 @@
 			<div class="border border-4 w-50 fondoProducto ps-3">
 
 				<form class="pt-3 formulario" method="POST"
-					th:action="${producto.id != 0} ? @{/admin/editarProducto} : @{/admin/addProducto}" th:object="${producto}">
+					th:action="${producto.id != 0} ? @{/ventas/editarProducto} : @{/ventas/addProducto}" th:object="${producto}">
 					<input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" />
 
 					<div>
