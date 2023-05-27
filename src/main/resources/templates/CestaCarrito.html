@@ -55,7 +55,7 @@
 
 
 								<td class="col-sm-1 col-md-1 text-center"><strong
-										th:text="${element.key.pvp * element.value}">$14.61</strong></td>
+										th:text="${#numbers.formatCurrency(subtotal)}">$14.61</strong></td>
 								<td class="col-sm-1 col-md-1">
 
 
@@ -76,7 +76,7 @@
 								</td>
 
 								<td class="text-right">
-									<h3><strong th:text="${total_carrito}">100€</strong> €</h3>
+									<h3><strong th:text="${#numbers.formatCurrency(total_carrito)}">100€</strong> €</h3>
 								</td>
 							</tr>
 							<tr>
@@ -123,7 +123,7 @@
 					</div>
 					<div th:if="${total_carrito >= 300}" class="modal-body">
 						<h5 class="text-info">¡Enhorabuena! Por haber hecho una venta de 300 € o superior le aplicaremos un 15% de descuento <br> <br>
-							<span th:text="${descuento}">0</span> €
+							<span th:text="${#numbers.formatCurrency(descuento)}">0</span> €
 						</h5>
 					</div>
 					<div class="modal-footer">

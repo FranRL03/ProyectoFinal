@@ -98,7 +98,7 @@ public class CarritoCompraAServicio {
     	        precioT += productos.get(p) * p.getPvp();
     	    }
     	    
-    	    v.setUser(user);
+    	    v.setUsuario(user);
     	    v.setPrecioTotal(precioT);
     	    ventaServicio.save(v);
     	    productos.clear();
@@ -112,6 +112,17 @@ public class CarritoCompraAServicio {
 		} else {
 			return total;
 		}
+	}
+	
+	public double calcularSubTotal() {
+		
+		double subtotal = 0.0;
+		
+		for(Producto p : productos.keySet()) {
+			subtotal += productos.get(p) * p.getPvp();
+		}
+		
+		return subtotal;
 	}
 	
 	

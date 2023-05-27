@@ -15,9 +15,9 @@ import com.salesinaos.triana.dam.proyectoversion3.excepciones.CarritoVacioExcept
 import com.salesinaos.triana.dam.proyectoversion3.model.Producto;
 import com.salesinaos.triana.dam.proyectoversion3.model.Usuario;
 import com.salesinaos.triana.dam.proyectoversion3.repo.UsuarioRepositorio;
+import com.salesinaos.triana.dam.proyectoversion3.repo.VentaRepositorio;
 import com.salesinaos.triana.dam.proyectoversion3.service.CarritoCompraAServicio;
 import com.salesinaos.triana.dam.proyectoversion3.service.ProductoServicio;
-import com.salesinaos.triana.dam.proyectoversion3.service.VentaServicio;
 
 @Controller
 public class CarritoCompraController {
@@ -30,10 +30,12 @@ public class CarritoCompraController {
 	
 	@Autowired
 	private UsuarioRepositorio userRepo;
-
+	
 	@Autowired
-	public void ShoppingCarritoController(CarritoCompraAServicio carritoServicio, ProductoServicio productoServicio,
-			VentaServicio ventaServicio) {
+	private VentaRepositorio vs;
+	
+	@Autowired
+	public void ShoppingCarritoController(CarritoCompraAServicio carritoServicio, ProductoServicio productoServicio) {
 		this.carritoServicio = carritoServicio;
 		this.productoServicio = productoServicio;
 	}
@@ -51,7 +53,7 @@ public class CarritoCompraController {
 
 		carritoServicio.addProducto(productoServicio.findById(id));
 
-		return "redirect:/tienda";
+		return "redirect:/carrito";
 	}
 
 	@GetMapping("/borrarProducto/{id}")
@@ -83,6 +85,14 @@ public class CarritoCompraController {
 	public Double calcularDescuento() {
 		return carritoServicio.calcularDescuento(totalCarrito());
 	}
+	
+	@ModelAttribute("subtotal")
+	public double calcularSubTotal() {
+		
+		return carritoServicio.calcularSubTotal();
+	}
+		
+		
 
 	@PostMapping("/comprado")
 	public String checkout(@AuthenticationPrincipal Usuario user) {
@@ -96,6 +106,12 @@ public class CarritoCompraController {
 
 			return "redirect:/tienda";
 		}
+	}
+	
+	@GetMapping("/historial")
+	public String listarDatosVentas(Model model) {
+		model.addAttribute("ventas", vs.findAll());
+		return "HistorialVentas";
 	}
 
 }
