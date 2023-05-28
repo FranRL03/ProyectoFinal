@@ -33,8 +33,9 @@
 
 		<div>
 
-			<form class="pt-3" method="POST" th:action="${hermano.numHer != 0} ? @{/admin/editar/submit} : @{/admin/addHermano}"
-				 th:object="${hermano}">
+			<form class="pt-3" method="POST"
+				th:action="${hermano.numHer != 0} ? @{/admin/editar/submit} : @{/admin/addHermano}"
+				th:object="${hermano}">
 				<input th:if="${hermano.numHer != 0}" type="hidden" name="id" th:field="*{numHer}" />
 				<div class="formulario">
 					<div class="d-flex justify-content-start">
@@ -53,13 +54,14 @@
 					<div class="d-flex justify-content-start">
 						<div class="mb-3 w-75 ps-2">
 							<label for="inputEmail4" class="form-label">Email</label>
-							<input type="email" class="form-control" id="inputEmail4" th:field="*{email}" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required>
+							<input type="email" class="form-control" id="inputEmail4" th:field="*{email}"
+								pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required>
 						</div>
 
 						<div class="w-75 mb-3 ps-2">
 							<label for="fnac" class="form-label">Fecha Nacimiento</label>
-							<input type="date" class="form-control" id="fnac" min="1900-01-01" max="2023-12-31"
-								th:field="*{fechaNac}" required>
+							<input type="date" class="form-control" id="fnac" name="fnac" min="1900-01-01"
+								max="2023-12-31" th:field="*{fechaNac}" required>
 						</div>
 					</div>
 
@@ -72,26 +74,27 @@
 						<div class="mb-3 w-50 ps-2">
 							<label for="inputState" class="form-label">Provincia</label>
 							<select id="inputState" class="form-select" th:field="*{provincia}" required>
-								<option th:each="provincia : ${provincia}" th:value="${provincia}" th:text="${provincia}">.</option>
+								<option th:each="provincia : ${provincia}" th:value="${provincia}"
+									th:text="${provincia}">.</option>
 
 							</select>
 						</div>
 					</div>
 					<div class="d-flex justify-content-start">
-                        <div class="mb-3 w-50">
-                            <li th:each="tipoVivienda : ${vivienda}" class="listaNuevoHermano">
-                                <input type="radio" name="vivienda" th:field="*{vivienda}" th:value="${tipoVivienda}">
-                                <label for="vivienda" class="form-label" th:for="${#ids.prev('vivienda')}"
-                                    th:text="${tipoVivienda}">Vivienda</label>
-                            </li>
-                        </div>
+						<div class="mb-3 w-50">
+							<li th:each="tipoVivienda : ${vivienda}" class="listaNuevoHermano">
+								<input type="radio" name="vivienda" th:field="*{vivienda}" th:value="${tipoVivienda}">
+								<label for="vivienda" class="form-label" th:for="${#ids.prev('vivienda')}"
+									th:text="${tipoVivienda}">Vivienda</label>
+							</li>
+						</div>
 
-                        <div class="mb-3 w-50 ps-2">
-                            <label for="cuota" class="form-label">Cuota</label>
-                            <input type="number" class="form-control" min="1" aria-label="cuota" id="movil"
-                                th:field="*{cuota}" required>
-                        </div> 
-                    </div>
+						<div class="mb-3 w-50 ps-2">
+							<label for="cuota" class="form-label">Cuota</label>
+							<input type="number" class="form-control" min="1" aria-label="cuota" id="movil"
+								th:field="*{cuota}" required>
+						</div>
+					</div>
 					<div class="d-flex justify-content-start">
 						<div class="mb-3 w-50 ps-2">
 							<label for="movil" class="form-label">Móvil</label>
@@ -100,7 +103,8 @@
 						</div>
 						<div class="mb-3 w-50 ps-2">
 							<label for="dni" class="form-label">DNI</label>
-							<input type="text" class="form-control" aria-label="Last name" id="dni" th:field="*{dni}" pattern="[0-9]{8}[A-Za-z]{1}" required>
+							<input type="text" class="form-control" aria-label="Last name" id="dni" th:field="*{dni}"
+								pattern="[0-9]{8}[A-Za-z]{1}" required>
 						</div>
 					</div>
 
@@ -112,8 +116,8 @@
 						</div>
 						<div class="mb-3 w-50 ps-2">
 							<label for="fAlta" class="form-label">Fecha Alta</label>
-							<input type="date" class="form-control" id="fnac" min="1900-01-01" max="2023-12-31"
-								th:field="*{fechaAlta}" required>
+							<input type="date" class="form-control" id="fAlta" name="fAlta" min="1900-01-01"
+								max="2023-12-31" th:field="*{fechaAlta}" required>
 						</div>
 					</div>
 
@@ -122,7 +126,8 @@
 				<div class="d-flex mb-3 ps-2">
 					<input type="reset" name="reset" value="Borrar" class="me-auto p-2">
 					<div class="pe-4">
-						<button type="button submit" class="btn btn-primary p-2" onclick="validarNumeroTelefono()">Enviar</button>
+						<button type="button submit" class="btn btn-primary p-2"
+							th:onclick="ValidarFechas()">Enviar</button>
 					</div>
 				</div>
 

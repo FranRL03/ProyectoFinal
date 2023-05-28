@@ -33,6 +33,8 @@ public class UsuarioController {
 	  	model.addAttribute("products", productoServicio.findByNombre(searchBean.getSearch()));
 	  
 	  return "Tienda";
-	  } 
+	  }
+	
+	
 
 }
