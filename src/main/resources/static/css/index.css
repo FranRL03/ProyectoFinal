@@ -163,6 +163,6 @@ footer{
     color: rgb(113, 6, 155);
 }
 
-.formulario label, #h5titulo, .titulo, #h4titulo, #form label, .pt{
+.formulario label, #h5titulo, .titulo, #h4titulo, #form label, .pt, #mensajeError, #loginError{
     font-weight: bold;
 }
