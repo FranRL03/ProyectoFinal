@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesinaos.triana.dam.proyectoversion3.excepciones.CarritoVacioException;
 import com.salesinaos.triana.dam.proyectoversion3.model.Producto;
@@ -29,13 +30,13 @@ public class CarritoCompraController {
 
 	@Autowired
 	private ProductoServicio productoServicio;
-	
+
 	@Autowired
 	private UsuarioRepositorio userRepo;
-	
+
 	@Autowired
 	private VentaRepositorio vs;
-	
+
 	@Autowired
 	public void ShoppingCarritoController(CarritoCompraAServicio carritoServicio, ProductoServicio productoServicio) {
 		this.carritoServicio = carritoServicio;
@@ -76,25 +77,23 @@ public class CarritoCompraController {
 				total += p.getPvp() * carrito.get(p);
 
 			}
-			
+
 			return total;
-		} 
+		}
 
 		return 0.0;
 	}
-	
+
 	@ModelAttribute("descuento")
 	public Double calcularDescuento() {
 		return carritoServicio.calcularDescuento(totalCarrito());
 	}
-	
+
 	@ModelAttribute("subtotal")
 	public double calcularSubTotal() {
-		
+
 		return carritoServicio.calcularSubTotal();
 	}
-		
-		
 
 	@PostMapping("/comprado")
 	public String checkout(@AuthenticationPrincipal Usuario user) {
@@ -109,11 +108,10 @@ public class CarritoCompraController {
 			return "redirect:/user/tienda";
 		}
 	}
-	
+
 	@GetMapping("/historial")
 	public String listarDatosVentas(Model model) {
 		model.addAttribute("ventas", vs.findAll());
 		return "HistorialVentas";
 	}
-
 }

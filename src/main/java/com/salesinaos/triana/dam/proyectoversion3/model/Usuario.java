@@ -20,7 +20,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Entity
 @Data
 @NoArgsConstructor
@@ -31,14 +30,14 @@ public class Usuario implements UserDetails {
 	@Id
 	@GeneratedValue
 	private long id;
-	
+
 	private String username;
 	private String password;
-	
+
 	private boolean admin;
-	
-	@OneToMany (mappedBy = "usuario",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-	private  List<Venta> lineaDeVenta = new ArrayList<>();
+
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Venta> lineaDeVenta = new ArrayList<>();
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

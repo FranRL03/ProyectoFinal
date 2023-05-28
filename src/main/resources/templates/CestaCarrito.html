@@ -60,7 +60,8 @@
 
 
 
-									<a th:href="@{/shop/borrarProducto/{id}(id=${element.key.id})}" class="enlaceCompra">
+									<a th:href="@{/shop/borrarProducto/{id}(id=${element.key.id})}"
+										class="enlaceCompra">
 										<button type="button" class="btn btn-danger"><span
 												class="glyphicon glyphicon-remove"></span> Eliminar </button>
 									</a>
@@ -68,15 +69,15 @@
 								</td>
 							</tr>
 							<tr>
-								<td>   </td>
-								<td>   </td>
-								<td>   </td>
+								<td></td>
+								<td></td>
+								<td></td>
 								<td>
 									<h3>Total</h3>
 								</td>
 
 								<td class="text-right">
-									<h3><strong th:text="${#numbers.formatCurrency(total_carrito)}">100€</strong> €</h3>
+									<h3><strong th:text="${#numbers.formatCurrency(total_carrito)}">100€</strong></h3>
 								</td>
 							</tr>
 							<tr>
@@ -122,7 +123,8 @@
 						<h5 class="text-danger">El carrito está vacío</h5>
 					</div>
 					<div th:if="${total_carrito >= 300}" class="modal-body">
-						<h5 class="text-info">¡Enhorabuena! Por haber hecho una venta de 300 € o superior le aplicaremos un 15% de descuento <br> <br>
+						<h5 class="text-info">¡Enhorabuena! Por haber hecho una venta de 300 € o superior le aplicaremos
+							un 15% de descuento <br> <br>
 							<span th:text="${#numbers.formatCurrency(descuento)}">0</span> €
 						</h5>
 					</div>
