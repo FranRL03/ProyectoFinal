@@ -148,6 +148,39 @@ footer{
 
 }
 
+/* EXCEPTION */
+
+.bodyExcep {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        
+        .contener {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        #excep {
+            color: #e74c3c;
+        }
+        
+        #mensajeExcep {
+            margin-bottom: 20px;
+        }
+        
+        .botonExcp {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
 /* CSS EN COMÚN */
 
 #title, #card-1, #card-2, #card-3{

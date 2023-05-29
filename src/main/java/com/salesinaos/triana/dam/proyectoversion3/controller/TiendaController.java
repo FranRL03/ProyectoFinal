@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.salesinaos.triana.dam.proyectoversion3.excepciones.ProductoCompradoException;
 import com.salesinaos.triana.dam.proyectoversion3.formbeans.SearchBean;
 import com.salesinaos.triana.dam.proyectoversion3.model.Producto;
-import com.salesinaos.triana.dam.proyectoversion3.repo.VentaRepositorio;
 import com.salesinaos.triana.dam.proyectoversion3.service.ProductoServicio;
+import com.salesinaos.triana.dam.proyectoversion3.service.VentaServicio;
 
 @Controller
 @RequestMapping("/ventas")
@@ -21,10 +22,11 @@ public class TiendaController {
 	private ProductoServicio productoServicio;
 	
 	@Autowired
-	private VentaRepositorio vs;
+	private VentaServicio vs;
 	
-	public TiendaController(ProductoServicio productoServicio) {
+	public TiendaController(ProductoServicio productoServicio, VentaServicio ventaServicio) {
 		this.productoServicio = productoServicio;
+		this.vs = ventaServicio;
 	}
 	
 	@GetMapping("/adminPro")
@@ -51,7 +53,15 @@ public class TiendaController {
 	
 	@GetMapping("/delete/{id}")
 	public String borrarProducto(@PathVariable("id") long id) {
-		productoServicio.restarCantidadProducto(id, 1);
+		
+		int numCompras = vs.comprarVentaProducto(id);
+	    if (numCompras > 0) {
+	        throw new ProductoCompradoException("Este producto no se puede borrar");
+	    }else {
+	    	productoServicio.restarCantidadProducto(id, 1);
+	    }
+	    
+		
 		return "redirect:/ventas/adminPro";
 	}
 	

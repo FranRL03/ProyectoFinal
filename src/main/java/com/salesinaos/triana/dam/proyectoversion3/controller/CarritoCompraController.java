@@ -11,15 +11,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesinaos.triana.dam.proyectoversion3.excepciones.CarritoVacioException;
 import com.salesinaos.triana.dam.proyectoversion3.model.Producto;
 import com.salesinaos.triana.dam.proyectoversion3.model.Usuario;
 import com.salesinaos.triana.dam.proyectoversion3.repo.UsuarioRepositorio;
-import com.salesinaos.triana.dam.proyectoversion3.repo.VentaRepositorio;
 import com.salesinaos.triana.dam.proyectoversion3.service.CarritoCompraAServicio;
 import com.salesinaos.triana.dam.proyectoversion3.service.ProductoServicio;
+import com.salesinaos.triana.dam.proyectoversion3.service.VentaServicio;
 
 @Controller
 @RequestMapping("/shop")
@@ -35,12 +34,14 @@ public class CarritoCompraController {
 	private UsuarioRepositorio userRepo;
 
 	@Autowired
-	private VentaRepositorio vs;
+	private VentaServicio vs;
 
 	@Autowired
-	public void ShoppingCarritoController(CarritoCompraAServicio carritoServicio, ProductoServicio productoServicio) {
+	public void ShoppingCarritoController(CarritoCompraAServicio carritoServicio, ProductoServicio productoServicio,
+			VentaServicio ventaServicio) {
 		this.carritoServicio = carritoServicio;
 		this.productoServicio = productoServicio;
+		this.vs = ventaServicio;
 	}
 
 	@GetMapping("/carrito")

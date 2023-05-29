@@ -25,12 +25,6 @@ public class AdminController {
 	@Autowired
 	private HermanoServicio hermanoServicio;
 	
-	@Autowired
-	private ProductoServicio productoServicio;
-	
-	@Autowired
-	private VentaRepositorio vs;
-	
 	public AdminController(HermanoServicio service, ProductoServicio productoServicio) {
 		this.hermanoServicio = service;
 		//this.productoServicio = productoServicio;
