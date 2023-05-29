@@ -1,201 +1,246 @@
 /* PRINCIPAL */
 
-ul li a{
-    color: rgb(6, 27, 2) !important;
+ul li a {
+	color: rgb(6, 27, 2) !important;
 }
 
-header{
-    width: 100%;
-    position: fixed;
-    z-index: 100;
+header {
+	width: 100%;
+	position: fixed;
+	z-index: 100;
 }
 
-.content{
-    padding-top: 150px;
-    padding-left: 10px;
+.content {
+	padding-top: 150px;
+	padding-left: 10px;
 }
 
-#title{
-    color: rgb(62, 17, 62);
-    font-family:'Comic Sans MS', Arial, sans-serif;
+#title {
+	color: rgb(62, 17, 62);
+	font-family: 'Comic Sans MS', Arial, sans-serif;
 }
 
-#card-1{
-    text-indent: 1em;
+#card-1 {
+	text-indent: 1em;
 }
 
-#card-2{
-    text-indent: 2.5em;
+#card-2 {
+	text-indent: 2.5em;
 }
 
-#card-3{
-    text-indent: 6em;
+#card-3 {
+	text-indent: 6em;
 }
 
-#notice{
-    color: rgb(62, 17, 62);
-    padding-top: 150px;
+#notice {
+	color: rgb(62, 17, 62);
+	padding-top: 150px;
 }
 
-.noticePara{
-    margin-top: 75px;
+.noticePara {
+	margin-top: 75px;
 }
 
-footer{
-    margin-top: 100px ;
-    background-color: rgb(211, 211, 211);
+footer {
+	margin-top: 100px;
+	background-color: rgb(211, 211, 211);
 }
 
 /* LOGIN */
 
-#fondoAcceso{
-    background-image: url(/img/VirgenPuente.jpeg);
-    background-size: 100% 130%;
-    background-repeat: no-repeat;
+#fondoAcceso {
+	background-image: url(/img/VirgenPuente.jpeg);
+	background-size: 100% 130%;
+	background-repeat: no-repeat;
 }
 
-#divForm{
-    width: 370px;
-    height: 566px;
-    background-color: rgb(236, 236, 236, 0.7);
+#divForm {
+	width: 370px;
+	height: 566px;
+	background-color: rgb(236, 236, 236, 0.7);
 }
 
-#form{
-    width: 342px;
-    height: 538px;
+#form {
+	width: 342px;
+	height: 538px;
 }
 
-#enlace{
-    font-size:  1.2rem;
-    font-weight: 500;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    padding-top: 15px;
+#enlace {
+	font-size: 1.2rem;
+	font-weight: 500;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	padding-top: 15px;
 }
 
-#h4titulo{
-    font-family: sans-serif;
+#h4titulo {
+	font-family: sans-serif;
 }
 
-/* NUEVO HERMANO */ 
+/* NUEVO HERMANO */
 
-#fondoNuevoHermano{
-    background-color: rgb(245, 235, 209);
+#fondoNuevoHermano {
+	background-color: rgb(245, 235, 209);
 }
 
-.nuevoHermano{
+.nuevoHermano {
 	list-style-type: none;
 }
 
-.nuevoHermano{
-    padding-top: 40px;
-    padding-left: 10px;
+.nuevoHermano {
+	padding-top: 40px;
+	padding-left: 10px;
 }
 
-#h5titulo{
-    margin-top: 65px;
-    font-family: Gabriola;
-    font-size: 1.6rem;
+#h5titulo {
+	margin-top: 65px;
+	font-family: Gabriola;
+	font-size: 1.6rem;
 }
 
 /* TABLA ADMIN */
 
-#tabla{
-    width: 99%;
+#tabla {
+	width: 99%;
 }
 
-.celda{
-    width: 300px;
-    text-align: center;
+.celda {
+	width: 300px;
+	text-align: center;
 }
 
 /* TIENDA HERMANDAD */
 
-#peana{
-    height: 50%;
+#peana {
+	height: 50%;
 }
 
-.enlaceCompra{
-    text-decoration: none;
-    color: aliceblue;
+.enlaceCompra {
+	text-decoration: none;
+	color: aliceblue;
 }
 
 /* NUEVO PRODUCTO */
 
-#tituloProducto{
-    font-family: Gabriola;
-    font-size: 90px;
+#tituloProducto {
+	font-family: Gabriola;
+	font-size: 90px;
 }
 
-.fondoProducto{
-    background-color: rgb(141, 149, 157, 0.2);
+.fondoProducto {
+	background-color: rgb(141, 149, 157, 0.2);
 }
 
-#fondoProducto{
-	 background-color: rgb(147, 116, 154);
+#fondoProducto {
+	background-color: rgb(147, 116, 154);
 }
 
-#carritoerror{
-    margin-top: 150px;
+#carritoerror {
+	margin-top: 150px;
 }
 
 /* ESTÁTICAS */
 
-.p{
+.p {
 
-    color: rgb(59, 23, 88);
+	color: rgb(59, 23, 88);
 
 }
 
 /* EXCEPTION */
 
 .bodyExcep {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
-        
-        .contener {
-            max-width: 500px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        #excep {
-            color: #e74c3c;
-        }
-        
-        #mensajeExcep {
-            margin-bottom: 20px;
-        }
-        
-        .botonExcp {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #e74c3c;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-        }
+	font-family: Arial, sans-serif;
+	background-color: #f2f2f2;
+}
+
+.contener {
+	max-width: 500px;
+	margin: 50px auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#excep {
+	color: #e74c3c;
+}
+
+#mensajeExcep {
+	margin-bottom: 20px;
+}
+
+.botonExcp {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #e74c3c;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 4px;
+}
+
+/* PAPELETA */
+
+.papeleta {
+	background-color: blanchedalmond;
+}
+
+#papeletaForm {
+	margin-bottom: 20px;
+	margin-top: 200px;
+
+}
+
+.labels {
+	display: block;
+	margin-bottom: 5px;
+}
+
+#enviar {
+	padding: 10px 20px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+}
 
 /* CSS EN COMÚN */
 
-#title, #card-1, #card-2, #card-3{
-    font-weight: 600;
-    font-family:'Comic Sans MS', Arial, sans-serif;
+#title,
+#card-1,
+#card-2,
+#card-3 {
+	font-weight: 600;
+	font-family: 'Comic Sans MS', Arial, sans-serif;
 }
 
-.titleNotice, footer h5, #tituloNew, .formulario label, #tituloProducto, .titulo{
-    color: rgb(76, 31, 119);
+.titleNotice,
+footer h5,
+#tituloNew,
+.formulario label,
+#tituloProducto,
+.titulo,
+.labels {
+	color: rgb(76, 31, 119);
 }
 
-#title, #card-1, #card-2, #card-3, .tituloEnlace, #h5titulo{
-    color: rgb(113, 6, 155);
+#title,
+#card-1,
+#card-2,
+#card-3,
+.tituloEnlace,
+#h5titulo {
+	color: rgb(113, 6, 155);
 }
 
-.formulario label, #h5titulo, .titulo, #h4titulo, #form label, .pt, #mensajeError, #loginError{
-    font-weight: bold;
+.formulario label,
+#h5titulo,
+.titulo,
+#h4titulo,
+#form label,
+.pt,
+#mensajeError,
+#loginError, .labels {
+	font-weight: bold;
 }
