@@ -42,33 +42,9 @@ public class VentaServicio extends BaseService<Venta, Long, VentaRepositorio> {
 	public Venta findById(long id) {
 		return ventaRepo.findById(id).orElse(null);
 	}
-	
-	//====================================
 
-	public double generarNumAleatorio() {
-
-		int num = 0;
-		int ganador = 25;
-		double descuento = 0.0;
-		//List<Venta> v = findAll();
-		
-		Venta v = new Venta();
-
-		Random rnd = new Random(System.nanoTime());
-
-		num = rnd.nextInt(50 - 1) + 1;
-
-		if (num >= ganador) {
-			
-			descuento = v.getPrecioTotal() * 0.5;
-			
-		/*	for (Venta venta : v) {
-				
-				descuento = venta.getPrecioTotal() * 0.5;
-			} */
-		}
-
-		return descuento;
+	public int comprarVentaProducto(long id) {
+		return ventaRepo.contarVentas(id);
 
 	}
 
