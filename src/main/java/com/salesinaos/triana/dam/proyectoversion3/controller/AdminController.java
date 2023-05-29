@@ -25,9 +25,8 @@ public class AdminController {
 	@Autowired
 	private HermanoServicio hermanoServicio;
 	
-	public AdminController(HermanoServicio service, ProductoServicio productoServicio) {
+	public AdminController(HermanoServicio service) {
 		this.hermanoServicio = service;
-		//this.productoServicio = productoServicio;
 	}
 	
 	@GetMapping("/")
