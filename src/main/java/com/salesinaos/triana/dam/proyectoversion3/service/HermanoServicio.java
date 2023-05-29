@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.salesinaos.triana.dam.proyectoversion3.model.Hermano;
+import com.salesinaos.triana.dam.proyectoversion3.model.Venta;
 import com.salesinaos.triana.dam.proyectoversion3.repo.HermanoRepositorio;
+import com.salesinaos.triana.dam.proyectoversion3.repo.VentaRepositorio;
 
 @Service
-public class HermanoServicio {
+public class HermanoServicio extends BaseService<Hermano, Long, HermanoRepositorio>{
 
 	@Autowired
 	private HermanoRepositorio hermanoRepo;

@@ -5,10 +5,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.salesinaos.triana.dam.proyectoversion3.excepciones.CarritoVacioException;
+import com.salesinaos.triana.dam.proyectoversion3.excepciones.NombreNoEncontradoException;
 import com.salesinaos.triana.dam.proyectoversion3.excepciones.ProductoCompradoException;
 
 @ControllerAdvice
-public class CarritoExceptionController {
+public class ExceptionController {
 	
 	@ExceptionHandler(CarritoVacioException.class)
 	public String carritoException(Model model, CarritoVacioException cve) {
@@ -25,6 +26,14 @@ public class CarritoExceptionController {
 		model.addAttribute("prodcutoExcep", pce);
 		
 		return "ProductoException";
+	}
+	
+	@ExceptionHandler(NombreNoEncontradoException.class)
+	public String nombreException(Model model, NombreNoEncontradoException ne) {
+		
+		model.addAttribute("nombreException", ne);
+		
+		return "NombreException";
 	}
 
 }

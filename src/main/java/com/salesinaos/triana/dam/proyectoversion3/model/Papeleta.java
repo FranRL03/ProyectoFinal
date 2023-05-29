@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,7 +27,9 @@ public class Papeleta {
 	
 	private double precio;
 	private String titular, tipo;
-	private LocalDate año;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate fechaPapeleta;
 	
 	@ManyToOne
 	private Hermano hermano;
