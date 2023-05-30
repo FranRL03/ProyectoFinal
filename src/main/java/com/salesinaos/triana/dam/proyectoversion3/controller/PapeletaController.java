@@ -26,7 +26,6 @@ public class PapeletaController {
 	@Autowired
 	private PapeletaServicio papeletaServicio;
 
-
 	@Autowired
 	private HermanoServicio hs;
 
@@ -34,12 +33,12 @@ public class PapeletaController {
 		this.papeletaServicio = service;
 		this.hs = hs;
 	}
-	
+
 	@GetMapping("/lista")
-	public String listarTodos (Model model) {
+	public String listarTodos(Model model) {
 		model.addAttribute("papeletas", papeletaServicio.findAll());
-		
-				return "AdminPapeletas";
+
+		return "AdminPapeletas";
 	}
 
 	@GetMapping("/nuevaPapeleta")
@@ -50,22 +49,20 @@ public class PapeletaController {
 	}
 
 	@PostMapping("/buscarHermano")
-	public String verificarHermanoEnLista(@ModelAttribute("papeleta") Papeleta p, String nombre) {
-		Hermano her = new Hermano(); 
-		
-		
+	public String verificarHermanoEnLista(@ModelAttribute("papeleta") Papeleta p, String nombre, String apellidos) {
+		Hermano her = new Hermano();
+
 		p.setFechaPapeleta(LocalDate.now());
 
-		if (hs.findByNombre(nombre) != null) {
+		if (hs.findByNombreOrApellidos(nombre, apellidos) != null) {
 
-			Papeleta papeleta = papeletaServicio.add(p); 
+			Papeleta papeleta = papeletaServicio.add(p);
 
-			
 			papeletaServicio.save(papeleta);
 			her.addPapeleta(papeleta);
 
 			return "redirect:/admin/gestion";
-		}else {
+		} else {
 			throw new NombreNoEncontradoException("Nombre no encontrado");
 		}
 	}
@@ -81,13 +78,12 @@ public class PapeletaController {
 			return "redirect:/admin/gestion";
 		}
 	}
-	
-	/* @ModelAttribute("total_papeletas")
+
+	@ModelAttribute("total_papeletas")
 	public Double papeletasTotal() {
-		
-	return papeletaServicio.sumarPapeletas();
-		
-		
-	}*/
+
+		return papeletaServicio.sumarPapeletas();
+
+	}
 
 }

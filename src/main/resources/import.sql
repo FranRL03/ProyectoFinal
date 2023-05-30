@@ -59,43 +59,84 @@ INSERT INTO Producto (ID, IMG, NOMBRE,DESCRIPCION, CANTIDAD, PVP) VALUES (NEXTVA
 INSERT INTO Producto (ID, IMG, NOMBRE,DESCRIPCION, CANTIDAD, PVP) VALUES (NEXTVAL('hibernate_sequence'), 'https://www.dcostal.com/2416-medium_default/incensario-nazareno-verde-y-blanco.jpg' ,'Incensario', 'Incensario Nazareno de cerámica', 8, 9.50);
 INSERT INTO Producto (ID, IMG, NOMBRE,DESCRIPCION, CANTIDAD, PVP) VALUES (NEXTVAL('hibernate_sequence'), 'https://inciensoscofradeselcautivo.com/wp-content/uploads/2022/05/WhatsApp-Image-2022-12-13-at-20.53.21-430x573.jpeg' ,'Pack Incieso', 'Contiene: 1 torre de cerámica 1 barra de carbón 1 bolsa del incienso más suave y dulce', 5, 11.40);
 
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (209, '2023-03-09', 'Cristo', 'Libro de Regla', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (230, '2023-03-22', 'Virgen', 'Costalero ', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (245, '2023-03-23', 'Cristo', 'Cruz de Guia', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (259, '2023-03-16', 'Virgen', 'Trompeta', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (260, '2023-03-16', 'Cristo', 'Monaguillo', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (298, '2023-03-18', 'Virgen', 'Pertiguero', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (282, '2023-03-14', 'Virgen', 'Pertiguero', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (275, '2023-03-12', 'Cristo', 'Cirial', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (266, '2023-03-12', 'Virgen', 'Trompeta', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (240, '2023-03-21', 'Cristo', 'Monaguillo', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (219, '2023-03-11', 'Virgen', 'Libro de Regla', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (249, '2023-03-12', 'Cristo', 'Maniguetero', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (255, '2023-03-10', 'Virgen', 'Estandarte', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (293, '2023-03-06', 'Virgen', 'Velita', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (232, '2023-03-11', 'Cristo', 'Vara', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (240, '2023-03-14', 'Cristo', 'Nazareno', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (287, '2023-03-16', 'Cristo', 'Costalero ', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (297, '2023-03-07', 'Virgen', 'Costalero ', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (207, '2023-03-23', 'Cristo', 'Nazareno', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (282, '2023-03-22', 'Virgen', 'Pertiguero', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (210, '2023-03-06', 'Virgen', 'Vara', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (223, '2023-03-08', 'Virgen', 'Velita', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (241, '2023-03-12', 'Virgen', 'Trompeta', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (295, '2023-03-07', 'Cristo', 'Estandarte', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (249, '2023-03-20', 'Cristo', 'Nazareno', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (202, '2023-03-06', 'Virgen', 'Cirial', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (268, '2023-03-15', 'Cristo', 'Vara', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (213, '2023-03-09', 'Virgen', 'Cirial', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (263, '2023-03-17', 'Cristo', 'Costalero ', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (223, '2023-03-12', 'Virgen', 'Diputado de Tramo', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (247, '2023-03-10', 'Virgen', 'Monaguillo', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (221, '2023-03-13', 'Virgen', 'Velita', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (221, '2023-03-20', 'Cristo', 'Penitente', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (221, '2023-03-21', 'Cristo', 'Vara', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (249, '2023-03-20', 'Virgen', 'Vara', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (207, '2023-03-12', 'Virgen', 'Monaguillo', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (294, '2023-03-11', 'Virgen', 'Cirial', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (247, '2023-03-20', 'Virgen', 'Pertiguero', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (241, '2023-03-23', 'Virgen', 'Pertiguero', 60);
--- insert into PAPELETA (NUM_PAPELETA, AÑO, TITULAR, TIPO, PRECIO) values (206, '2023-03-20', 'Cristo', 'Velita', 60);
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (209, 'Cristo', 'Libro de Regla', 60, '2023-03-09');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (230, 'Virgen', 'Costalero ', 60, '2023-03-22');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (245, 'Cristo', 'Cruz de Guia', 60, '2023-03-23');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (259, 'Virgen', 'Trompeta', 60, '2023-03-16');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (260, 'Cristo', 'Monaguillo', 60, '2023-03-16');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (298, 'Virgen', 'Pertiguero', 60, '2023-03-18');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (282, 'Virgen', 'Pertiguero', 60, '2023-03-14');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (275, 'Cristo', 'Cirial', 60, '2023-03-12');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (266, 'Virgen', 'Trompeta', 60, '2023-03-12');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (340, 'Cristo', 'Monaguillo', 60, '2023-03-21');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (219, 'Virgen', 'Libro de Regla', 60, '2023-03-11');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (239, 'Cristo', 'Maniguetero', 60, '2023-03-12');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (255, 'Virgen', 'Estandarte', 60, '2023-03-10');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (293, 'Virgen', 'Velita', 60, '2023-03-06');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (232, 'Cristo', 'Vara', 60, '2023-03-11');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (240, 'Cristo', 'Nazareno', 60, '2023-03-14');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (287, 'Cristo', 'Costalero ', 60, '2023-03-16');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (297, 'Virgen', 'Costalero ', 60, '2023-03-07');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (207, 'Cristo', 'Nazareno', 60, '2023-03-23');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (382, 'Virgen', 'Pertiguero', 60, '2023-03-22');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (210, 'Virgen', 'Vara', 60, '2023-03-06');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (223, 'Virgen', 'Velita', 60, '2023-03-08');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (241, 'Virgen', 'Trompeta', 60, '2023-03-12');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (295, 'Cristo', 'Estandarte', 60, '2023-03-07');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (203, 'Cristo', 'Nazareno', 60, '2023-03-20');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (202, 'Virgen', 'Cirial', 60, '2023-03-06');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (268, 'Cristo', 'Vara', 60, '2023-03-15');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (213, 'Virgen', 'Cirial', 60, '2023-03-09');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (263, 'Cristo', 'Costalero ', 60, '2023-03-17');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (273, 'Virgen', 'Diputado de Tramo', 60, '2023-03-12');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (247, 'Virgen', 'Monaguillo', 60, '2023-03-10');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (221, 'Virgen', 'Velita', 60, '2023-03-13');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (201, 'Cristo', 'Penitente', 60, '2023-03-20');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (200, 'Cristo', 'Vara', 60, '2023-03-21');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (249, 'Virgen', 'Vara', 60, '2023-03-20');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (208, 'Virgen', 'Monaguillo', 60, '2023-03-12');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (294, 'Virgen', 'Cirial', 60, '2023-03-11');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (300, 'Virgen', 'Pertiguero', 60, '2023-03-20');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (248, 'Virgen', 'Pertiguero', 60, '2023-03-23');
+insert into PAPELETA (NUM_PAPELETA, TITULAR, TIPO, PRECIO, FECHA_PAPELETA) values (206, 'Cristo', 'Velita', 60, '2023-03-20');                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
