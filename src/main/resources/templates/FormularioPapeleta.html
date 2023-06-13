@@ -17,8 +17,9 @@
     <main>
         <div class="d-flex justify-content-between">
             <img src="/img/paso 1.jpg" alt="" width="40%" height="725" class="mt-4">
+            <div th:each="hermano : ${hermanos}">
             <form id="papeletaForm" action="/sacarPapeleta" method="POST"
-                th:action="${papeleta.numPapeleta != 0} ? @{/papeleta/editarPapeleta/{numPapeleta}} : @{/papeleta/buscarHermano}"
+                th:action="${papeleta.numPapeleta != 0} ? @{/papeleta/editarPapeleta/{numPapeleta}} : @{/papeleta/nuevaPapeleta}"
                 th:object="${papeleta}">
                 
                     <label class="labels" for="nombre">Nombre del hermano:</label>
@@ -27,7 +28,7 @@
                 <!--	<label class="labels" for="nombre">Apellidos del hermano:</label>
 				<input type="text" id="apellidos" name="apellidos" required><br> -->
 
-                <input type="hidden" id="nombre" name="nombre" value="${nombre}">
+                <input type="hidden" id="nombre" name="nombre" value="${hermano.nombre}">
 
                 <label class="labels" for="precio">Precio:</label>
                 <input type="number" th:field="*{precio}" min="10" id="precio" name="precio" required><br>
@@ -42,6 +43,7 @@
                     <button id="enviar" type="submit">Sacar Papeleta</button>
                 </div>
             </form>
+            </div>
             <img src="/img/PASODEVIRGEN1.jpg" alt="" width="40%" height="725" class="mt-4">
         </div>
     </main>

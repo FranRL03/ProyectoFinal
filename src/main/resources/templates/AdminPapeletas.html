@@ -36,15 +36,17 @@
 			<thead class="table-dark">
 				<tr>
 					<th scope="col">Num_Papeleta</th>
+					<th scope="col">Nombre</th>
 					<th scope="col">Año</th>
 					<th scope="col">Titular</th>
 					<th scope="col">Tipo</th>
 					<th scope="col">Precio</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody th:each="hermano : ${hermanos}">
 				<tr th:each="papeleta : ${papeletas}">
 					<th scope="row" th:text="${papeleta.numPapeleta}">1</th>
+					<td th:text="${hermano.nombre}">Nombre</td>
 					<td th:text="${#temporals.format(papeleta.fechaPapeleta, 'dd/MM/yyyy')}">Nombre</td>
 					<td th:text="${papeleta.titular}">Apellidos</td>
 					<td th:text="${papeleta.tipo}">DNI</td>

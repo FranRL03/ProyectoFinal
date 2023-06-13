@@ -1,8 +1,5 @@
 package com.salesinaos.triana.dam.proyectoversion3.controller;
 
-import java.time.LocalDate;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.salesinaos.triana.dam.proyectoversion3.excepciones.NombreNoEncontradoException;
-import com.salesinaos.triana.dam.proyectoversion3.formbeans.SearchBean;
 import com.salesinaos.triana.dam.proyectoversion3.model.Hermano;
 import com.salesinaos.triana.dam.proyectoversion3.model.Papeleta;
 import com.salesinaos.triana.dam.proyectoversion3.service.HermanoServicio;
@@ -46,21 +41,18 @@ public class PapeletaController {
 		model.addAttribute("papeleta", new Papeleta());
 
 		model.addAttribute("hermanos", hs.findAll());
-
-		model.addAttribute("searchForm", new SearchBean());
+		
 		return "FormularioPapeleta";
 
 	}
 
-	/*@GetMapping("/papeleta/hermanos")
+	@GetMapping("/papeleta/hermanos")
 	public String listarTodosHermanos(Model model) {
 		model.addAttribute("hermanos", hs.findAll());
+		return "SacarPapeleta";
+	}
 
-		model.addAttribute("searchForm", new SearchBean());
-		return "ViewAdmin";
-	} */
-
-	@PostMapping("/searchV4")
+	/* @PostMapping("/searchV4")
 	public String searchHermano(@ModelAttribute("searchForm") SearchBean searchBean, Model model) {
 		model.addAttribute("hermanos", hs.findByNombre(searchBean.getSearch()));
 
@@ -89,19 +81,14 @@ public class PapeletaController {
 		} else {
 			throw new NombreNoEncontradoException("Nombre no encontrado");
 		}
-	} 
+	} */
+	
+	@PostMapping("/addPapeleta")
+	public String procesarFormulario(@ModelAttribute("papeleta") Papeleta p) {
+		papeletaServicio.add(p);
+		return "redirect/papeleta/hermanos";
+	}
 
-	@PostMapping("/editarPapeleta/{numPapeleta}")
-	public String mostrarFormularioEdit(@PathVariable("numPapeleta") long numPapeleta, Model model) {
-		Papeleta edit = papeletaServicio.findById(numPapeleta);
-
-		if (edit != null) {
-			model.addAttribute("papeleta", edit);
-			return "FormularioPapeleta";
-		} else {
-			return "redirect:/admin/gestion";
-		}
-	} 
 
 	@ModelAttribute("total_papeletas")
 	public Double papeletasTotal() {
