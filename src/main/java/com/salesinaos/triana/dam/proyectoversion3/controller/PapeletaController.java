@@ -45,27 +45,51 @@ public class PapeletaController {
 	public String mostrarFormulario(Model model) {
 		model.addAttribute("papeleta", new Papeleta());
 
+		model.addAttribute("hermanos", hs.findAll());
+
+		model.addAttribute("searchForm", new SearchBean());
 		return "FormularioPapeleta";
+
 	}
 
+	/*@GetMapping("/papeleta/hermanos")
+	public String listarTodosHermanos(Model model) {
+		model.addAttribute("hermanos", hs.findAll());
+
+		model.addAttribute("searchForm", new SearchBean());
+		return "ViewAdmin";
+	} */
+
+	@PostMapping("/searchV4")
+	public String searchHermano(@ModelAttribute("searchForm") SearchBean searchBean, Model model) {
+		model.addAttribute("hermanos", hs.findByNombre(searchBean.getSearch()));
+
+		return "/papeleta/buscarHermano";
+	} 
+
 	@PostMapping("/buscarHermano")
-	public String verificarHermanoEnLista(@ModelAttribute("papeleta") Papeleta p, String nombre, String apellidos) {
+	public String verificarHermanoEnLista(@ModelAttribute("papeleta") Papeleta p, String nombre) {
 		Hermano her = new Hermano();
+
+		
 
 		p.setFechaPapeleta(LocalDate.now());
 
-		if (hs.findByNombreOrApellidos(nombre, apellidos) != null) {
+		if (hs.findByNombre(nombre) != null) {
+			
+			List<Hermano> herBuscado = hs.findByNombre(nombre);
 
 			Papeleta papeleta = papeletaServicio.add(p);
 
 			papeletaServicio.save(papeleta);
 			her.addPapeleta(papeleta);
+			herBuscado.add(her);
 
 			return "redirect:/admin/gestion";
 		} else {
 			throw new NombreNoEncontradoException("Nombre no encontrado");
 		}
-	}
+	} 
 
 	@PostMapping("/editarPapeleta/{numPapeleta}")
 	public String mostrarFormularioEdit(@PathVariable("numPapeleta") long numPapeleta, Model model) {
@@ -77,7 +101,7 @@ public class PapeletaController {
 		} else {
 			return "redirect:/admin/gestion";
 		}
-	}
+	} 
 
 	@ModelAttribute("total_papeletas")
 	public Double papeletasTotal() {
