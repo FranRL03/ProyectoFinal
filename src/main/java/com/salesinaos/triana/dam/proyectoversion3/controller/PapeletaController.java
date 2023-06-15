@@ -65,6 +65,25 @@ public class PapeletaController {
 		} else {
 			throw new NombreNoEncontradoException("Nombre no encontrado");
 		}
+	} 
+	
+	@PostMapping("/papeletaSitio")
+	public String verificarHermanoLista(@ModelAttribute("papeleta") Papeleta p, String nombre, String apellidos) {
+		Hermano her = new Hermano();
+
+		p.setFechaPapeleta(LocalDate.now());
+
+		if (hs.findByNombreOrApellidos(nombre, apellidos) != null) {
+
+			Papeleta papeleta = papeletaServicio.add(p);
+
+			papeletaServicio.save(papeleta);
+			her.addPapeleta(papeleta);
+
+			return "redirect:/admin/gestion";
+		} else {
+			throw new NombreNoEncontradoException("Nombre no encontrado");
+		}
 	}
 
 	@PostMapping("/editarPapeleta/{numPapeleta}")

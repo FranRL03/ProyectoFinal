@@ -630,3 +630,7 @@ insert into PAPELETA (NUM_PAPELETA, AÃ‘O, TITULAR, TIPO, PRECIO) values (241,
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "insert into PAPELETA (NUM_PAPELETA, AÃ[*]‘O, TITULAR, TIPO, PRECIO) values (206, '2023-03-20', 'Cristo', 'Velita', 60)"
 Syntax error in SQL statement "insert into PAPELETA (NUM_PAPELETA, AÃ[*]‘O, TITULAR, TIPO, PRECIO) values (206, '2023-03-20', 'Cristo', 'Velita', 60)"; SQL statement:
 insert into PAPELETA (NUM_PAPELETA, AÃ‘O, TITULAR, TIPO, PRECIO) values (206, '2023-03-20', 'Cristo', 'Velita', 60) [42000-214]
+2023-06-03 13:12:59 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT LINEA_DE_VENTA * [*]FROM VENTA"
+Syntax error in SQL statement "SELECT LINEA_DE_VENTA * [*]FROM VENTA"; SQL statement:
+SELECT LINEA_DE_VENTA * FROM VENTA [42000-214]

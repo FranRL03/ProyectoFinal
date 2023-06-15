@@ -16,6 +16,9 @@ public interface HermanoRepositorio extends JpaRepository <Hermano, Long> {
 	@Query("select sum(h.cuota) from Hermano h")
 	double sumaDeCuotas();
 	
+	@Query("select num_her from Hermano h")
+	long numHermano();
+	
 	
 
 }
