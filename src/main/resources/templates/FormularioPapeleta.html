@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -17,32 +17,26 @@
 	<main>
 		<div class="d-flex justify-content-between">
 			<img src="/img/paso 1.jpg" alt="" width="40%" height="725" class="mt-4">
-				<form id="papeletaForm" action="/sacarPapeleta" method="POST"
-					th:action="@{/papeleta/addPapeleta}" th:object="${papeleta}">
-						<label class="labels" for="nombre">Nombre del hermano:</label>
-						<!-- <input type="text" id="nombre" name="nombre" required><br> -->
+			<form id="papeletaForm" action="/sacarPapeleta" method="POST" th:action="@{/papeleta/addPapeleta}"
+				th:object="${papeleta}">
+				<label class="labels" for="nombre">Nombre del hermano:</label>
+				<input type="text" id="nombre" name="nombre" th:field="${hermano.nombre}"><br>
 
-						<!--	<label class="labels" for="nombre">Apellidos del hermano:</label>
-						<input type="text" id="apellidos" name="apellidos" required><br> -->
+				<label class="labels" for="precio">Precio:</label>
+				<input type="number" th:field="*{precio}" min="10" id="precio" name="precio" required><br>
 
-						<input type="text" id="nombre" name="nombre" th:field="${hermano.nombre}"><br>
+				<label class="labels" for="titular">Titular:</label>
+				<input type="text" th:field="*{titular}" id="titular" name="titular" required><br>
 
-						<label class="labels" for="precio">Precio:</label>
-						<input type="number" th:field="*{precio}" min="10" id="precio" name="precio" required><br>
-
-						<label class="labels" for="titular">Titular:</label>
-						<input type="text" th:field="*{titular}" id="titular" name="titular" required><br>
-
-						<label class="labels" for="tipo">Tipo:</label>
-						<input type="text" th:field="*{tipo}" id="tipo" name="tipo" required><br>
-						
-						<label class="labels" for="tipo">Numero Hermanp:</label>
-						<input type="text" th:field="${hermano.numHer}" id="tipo" name="tipo" required><br>
-
-						<div class="pt-3">
-							<button id="enviar" type="submit">Sacar Papeleta</button>
-						</div>
-				</form>
+				<label class="labels" for="tipo">Tipo:</label>
+				<input type="text" th:field="*{tipo}" id="tipo" name="tipo" required><br>
+				
+				<input type="hidden" th:field="${hermano.numHer}" id="tipo" name="tipo" required><br>
+				
+				<div class="pt-3">
+					<button id="enviar" type="submit">Sacar Papeleta</button>
+				</div>
+			</form>
 			<img src="/img/PASODEVIRGEN1.jpg" alt="" width="40%" height="725" class="mt-4">
 		</div>
 	</main>

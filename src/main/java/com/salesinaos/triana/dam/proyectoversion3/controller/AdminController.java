@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesinaos.triana.dam.proyectoversion3.formbeans.SearchBean;
 import com.salesinaos.triana.dam.proyectoversion3.model.Hermano;
-import com.salesinaos.triana.dam.proyectoversion3.model.Papeleta;
 import com.salesinaos.triana.dam.proyectoversion3.service.HermanoServicio;
-import com.salesinaos.triana.dam.proyectoversion3.service.PapeletaServicio;
+
 
 
 @Controller

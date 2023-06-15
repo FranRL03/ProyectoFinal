@@ -55,33 +55,11 @@ public class PapeletaController {
 			model.addAttribute("hermanos", hs.findAll());
 			model.addAttribute("hermano", aEditar);
 			
-			List<Hermano> herBuscado = hs.findByNombre(nombre);
-
-			Papeleta papeleta = papeletaServicio.add(p);
-
-			papeletaServicio.save(papeleta);
-			her.addPapeleta(papeleta);
-			herBuscado.add(her);
-
-			return "redirect:/admin/gestion";
-		} else {
-			throw new NombreNoEncontradoException("Nombre no encontrado");
-		}
-	} 
-
-	@PostMapping("/editarPapeleta/{numPapeleta}")
-	public String mostrarFormularioEdit(@PathVariable("numPapeleta") long numPapeleta, Model model) {
-		Papeleta edit = papeletaServicio.findById(numPapeleta);
-
-		if (edit != null) {
-			model.addAttribute("papeleta", edit);
 			return "FormularioPapeleta";
 		}else {
 			return "redirect:/papeleta/papeleta/hermanos";
 		}
-
-	}
-
+	} 
 
 	@PostMapping("/addPapeleta")
 	public String procesarFormulario(@ModelAttribute("papeleta") Papeleta p) {
@@ -91,7 +69,7 @@ public class PapeletaController {
 		papeletaServicio.add(p);
 		return "redirect:/admin/gestion";
 	}
-
+	
 	@ModelAttribute("total_papeletas")
 	public Double papeletasTotal() {
 

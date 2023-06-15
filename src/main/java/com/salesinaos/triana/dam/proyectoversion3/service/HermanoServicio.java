@@ -66,13 +66,5 @@ public class HermanoServicio extends BaseService<Hermano, Long, HermanoRepositor
 		return hermanoRepo.findByNombreContainingIgnoreCase(nombre);		
 	}
 	
-	public List<Hermano> findByNombreOrApellidos(String nombre, String apellidos) {
-		
-		return hermanoRepo.findByNombreContainingIgnoreCaseOrApellidosContainingIgnoreCase(nombre, apellidos);
-	}
-	
-	public long findByNumHer(long numHer) {
-		return hermanoRepo.numHermano();
-	}
 
 }

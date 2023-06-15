@@ -11,13 +11,8 @@ public interface HermanoRepositorio extends JpaRepository <Hermano, Long> {
 	
 	public  List<Hermano> findByNombreContainingIgnoreCase(String nombre);
 	
-	public List<Hermano> findByNombreContainingIgnoreCaseOrApellidosContainingIgnoreCase(String nombre, String apellidos);
-	
 	@Query("select sum(h.cuota) from Hermano h")
 	double sumaDeCuotas();
-	
-	@Query("select num_her from Hermano h")
-	long numHermano();
 	
 	
 
