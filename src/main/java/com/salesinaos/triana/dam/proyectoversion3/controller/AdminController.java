@@ -12,10 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesinaos.triana.dam.proyectoversion3.formbeans.SearchBean;
 import com.salesinaos.triana.dam.proyectoversion3.model.Hermano;
-import com.salesinaos.triana.dam.proyectoversion3.model.Producto;
-import com.salesinaos.triana.dam.proyectoversion3.repo.VentaRepositorio;
+import com.salesinaos.triana.dam.proyectoversion3.model.Papeleta;
 import com.salesinaos.triana.dam.proyectoversion3.service.HermanoServicio;
-import com.salesinaos.triana.dam.proyectoversion3.service.ProductoServicio;
+import com.salesinaos.triana.dam.proyectoversion3.service.PapeletaServicio;
 
 
 @Controller
@@ -27,6 +26,7 @@ public class AdminController {
 	
 	public AdminController(HermanoServicio service) {
 		this.hermanoServicio = service;
+
 	}
 	
 	@GetMapping("/")
@@ -90,6 +90,7 @@ public class AdminController {
 		}	
 		
 	}
+	
 	
 	@PostMapping("/editar/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("hermano") Hermano h) {
