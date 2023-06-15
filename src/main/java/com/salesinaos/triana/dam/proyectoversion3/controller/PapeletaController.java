@@ -35,60 +35,37 @@ public class PapeletaController {
 
 		return "AdminPapeletas";
 	}
-
-	@GetMapping("/nuevaPapeleta")
-	public String mostrarFormulario(Model model) {
-		model.addAttribute("papeleta", new Papeleta());
-
-		model.addAttribute("hermanos", hs.findAll());
-		
-		return "FormularioPapeleta";
-
-	}
-
+	
 	@GetMapping("/papeleta/hermanos")
 	public String listarTodosHermanos(Model model) {
 		model.addAttribute("hermanos", hs.findAll());
+
 		return "SacarPapeleta";
 	}
 
-	/* @PostMapping("/searchV4")
-	public String searchHermano(@ModelAttribute("searchForm") SearchBean searchBean, Model model) {
-		model.addAttribute("hermanos", hs.findByNombre(searchBean.getSearch()));
-
-		return "/papeleta/buscarHermano";
-	} 
-
-	@PostMapping("/buscarHermano")
-	public String verificarHermanoEnLista(@ModelAttribute("papeleta") Papeleta p, String nombre) {
-		Hermano her = new Hermano();
-
+	@GetMapping("/nuevaPapeleta/{numHer}")
+	public String mostrarFormulario(@PathVariable("numHer") long numHer, Model model) {
+		model.addAttribute("papeleta", new Papeleta());
+		model.addAttribute("hermanos", hs.findAll());
 		
+		Hermano aEditar = hs.findById(numHer);
 
-		p.setFechaPapeleta(LocalDate.now());
-
-		if (hs.findByNombre(nombre) != null) {
+		if (aEditar != null) {
+			model.addAttribute("hermano", aEditar);
 			
-			List<Hermano> herBuscado = hs.findByNombre(nombre);
-
-			Papeleta papeleta = papeletaServicio.add(p);
-
-			papeletaServicio.save(papeleta);
-			her.addPapeleta(papeleta);
-			herBuscado.add(her);
-
-			return "redirect:/admin/gestion";
-		} else {
-			throw new NombreNoEncontradoException("Nombre no encontrado");
+			return "FormularioPapeleta";
+		}else {
+			return "redirect:/papeleta/papeleta/hermanos";
 		}
-	} */
-	
+
+	}
+
+
 	@PostMapping("/addPapeleta")
 	public String procesarFormulario(@ModelAttribute("papeleta") Papeleta p) {
 		papeletaServicio.add(p);
-		return "redirect/papeleta/hermanos";
+		return "redirect:/papeleta/papeleta/hermanos";
 	}
-
 
 	@ModelAttribute("total_papeletas")
 	public Double papeletasTotal() {
