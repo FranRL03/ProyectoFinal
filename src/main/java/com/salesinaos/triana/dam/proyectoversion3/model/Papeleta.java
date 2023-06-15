@@ -27,6 +27,7 @@ public class Papeleta {
 	
 	private String titular, tipo;
 	private double precio;
+	private long numHer;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaPapeleta;

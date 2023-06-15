@@ -1,7 +1,6 @@
 package com.salesinaos.triana.dam.proyectoversion3.controller;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,8 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.salesinaos.triana.dam.proyectoversion3.excepciones.NombreNoEncontradoException;
-import com.salesinaos.triana.dam.proyectoversion3.formbeans.SearchBean;
 import com.salesinaos.triana.dam.proyectoversion3.model.Hermano;
 import com.salesinaos.triana.dam.proyectoversion3.model.Papeleta;
 import com.salesinaos.triana.dam.proyectoversion3.service.HermanoServicio;
@@ -40,42 +37,23 @@ public class PapeletaController {
 
 		return "AdminPapeletas";
 	}
-
-	@GetMapping("/nuevaPapeleta")
-	public String mostrarFormulario(Model model) {
-		model.addAttribute("papeleta", new Papeleta());
-
-		model.addAttribute("hermanos", hs.findAll());
-
-		model.addAttribute("searchForm", new SearchBean());
-		return "FormularioPapeleta";
-
-	}
-
-	/*@GetMapping("/papeleta/hermanos")
+	
+	@GetMapping("/papeleta/hermanos")
 	public String listarTodosHermanos(Model model) {
 		model.addAttribute("hermanos", hs.findAll());
 
-		model.addAttribute("searchForm", new SearchBean());
-		return "ViewAdmin";
-	} */
+		return "SacarPapeleta";
+	}
 
-	@PostMapping("/searchV4")
-	public String searchHermano(@ModelAttribute("searchForm") SearchBean searchBean, Model model) {
-		model.addAttribute("hermanos", hs.findByNombre(searchBean.getSearch()));
-
-		return "/papeleta/buscarHermano";
-	} 
-
-	@PostMapping("/buscarHermano")
-	public String verificarHermanoEnLista(@ModelAttribute("papeleta") Papeleta p, String nombre) {
-		Hermano her = new Hermano();
-
+	@GetMapping("/nuevaPapeleta/{numHer}")
+	public String mostrarFormulario(@PathVariable("numHer") long numHer, Model model) {
 		
+		Hermano aEditar = hs.findById(numHer);
 
-		p.setFechaPapeleta(LocalDate.now());
-
-		if (hs.findByNombre(nombre) != null) {
+		if (aEditar != null) {
+			model.addAttribute("papeleta", new Papeleta());
+			model.addAttribute("hermanos", hs.findAll());
+			model.addAttribute("hermano", aEditar);
 			
 			List<Hermano> herBuscado = hs.findByNombre(nombre);
 
@@ -90,28 +68,6 @@ public class PapeletaController {
 			throw new NombreNoEncontradoException("Nombre no encontrado");
 		}
 	} 
-<<<<<<< HEAD
-	
-	@PostMapping("/papeletaSitio")
-	public String verificarHermanoLista(@ModelAttribute("papeleta") Papeleta p, String nombre, String apellidos) {
-		Hermano her = new Hermano();
-
-		p.setFechaPapeleta(LocalDate.now());
-
-		if (hs.findByNombreOrApellidos(nombre, apellidos) != null) {
-
-			Papeleta papeleta = papeletaServicio.add(p);
-
-			papeletaServicio.save(papeleta);
-			her.addPapeleta(papeleta);
-
-			return "redirect:/admin/gestion";
-		} else {
-			throw new NombreNoEncontradoException("Nombre no encontrado");
-		}
-	}
-=======
->>>>>>> c99bdb0ac89d19de42a9083bdc616ef5d36631b1
 
 	@PostMapping("/editarPapeleta/{numPapeleta}")
 	public String mostrarFormularioEdit(@PathVariable("numPapeleta") long numPapeleta, Model model) {
@@ -120,10 +76,21 @@ public class PapeletaController {
 		if (edit != null) {
 			model.addAttribute("papeleta", edit);
 			return "FormularioPapeleta";
-		} else {
-			return "redirect:/admin/gestion";
+		}else {
+			return "redirect:/papeleta/papeleta/hermanos";
 		}
-	} 
+
+	}
+
+
+	@PostMapping("/addPapeleta")
+	public String procesarFormulario(@ModelAttribute("papeleta") Papeleta p) {
+		p.setFechaPapeleta(LocalDate.now());
+		Hermano her = hs.findById(p.getNumHer());
+		p.setHermano(her);
+		papeletaServicio.add(p);
+		return "redirect:/admin/gestion";
+	}
 
 	@ModelAttribute("total_papeletas")
 	public Double papeletasTotal() {

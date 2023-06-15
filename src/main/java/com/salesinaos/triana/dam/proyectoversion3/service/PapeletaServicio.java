@@ -45,7 +45,7 @@ public class PapeletaServicio extends BaseService<Papeleta, Long, PapeletaReposi
 		return papeletaRepo.findById(numPapeleta).orElse(null);
 	}
 
-	public double sumarPapeletas() {
+	 public double sumarPapeletas() {
 
 		return papeletaRepo.sumaDePapeletas();
 	}
