@@ -1,5 +1,7 @@
 package com.salesinaos.triana.dam.proyectoversion3.controller;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,12 +47,12 @@ public class PapeletaController {
 
 	@GetMapping("/nuevaPapeleta/{numHer}")
 	public String mostrarFormulario(@PathVariable("numHer") long numHer, Model model) {
-		model.addAttribute("papeleta", new Papeleta());
-		model.addAttribute("hermanos", hs.findAll());
 		
 		Hermano aEditar = hs.findById(numHer);
 
 		if (aEditar != null) {
+			model.addAttribute("papeleta", new Papeleta());
+			model.addAttribute("hermanos", hs.findAll());
 			model.addAttribute("hermano", aEditar);
 			
 			return "FormularioPapeleta";
@@ -63,8 +65,11 @@ public class PapeletaController {
 
 	@PostMapping("/addPapeleta")
 	public String procesarFormulario(@ModelAttribute("papeleta") Papeleta p) {
+		p.setFechaPapeleta(LocalDate.now());
+		Hermano her = hs.findById(p.getNumHer());
+		p.setHermano(her);
 		papeletaServicio.add(p);
-		return "redirect:/papeleta/papeleta/hermanos";
+		return "redirect:/admin/gestion";
 	}
 
 	@ModelAttribute("total_papeletas")

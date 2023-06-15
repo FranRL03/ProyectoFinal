@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -18,7 +18,7 @@
 		<div class="d-flex justify-content-between">
 			<img src="/img/paso 1.jpg" alt="" width="40%" height="725" class="mt-4">
 				<form id="papeletaForm" action="/sacarPapeleta" method="POST"
-					th:action="@{/papeleta/nuevaPapeleta/{numHer}()}" th:object="${papeleta}">
+					th:action="@{/papeleta/addPapeleta}" th:object="${papeleta}">
 						<label class="labels" for="nombre">Nombre del hermano:</label>
 						<!-- <input type="text" id="nombre" name="nombre" required><br> -->
 
